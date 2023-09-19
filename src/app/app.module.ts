@@ -15,11 +15,19 @@ import en from '@angular/common/locales/en';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
+import { CustomEmailValidator } from './directives/validators/email-validator.directive';
+import { CustomPasswordValidator } from './directives/validators/password-validator.directive';
 
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent, LoginComponent],
+  declarations: [
+    AppComponent,
+    RegisterComponent,
+    LoginComponent,
+    CustomEmailValidator,
+    CustomPasswordValidator,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

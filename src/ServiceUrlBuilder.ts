@@ -1,5 +1,5 @@
 export class ServiceUrlBuilder {
-  private static DOMAIN_URL = 'https://localhost:7145/';
+  private static DOMAIN_URL = 'https://localhost:7273/';
   private static API_POSTFIX = 'api/';
 
   public static buildUrl(url: string) {

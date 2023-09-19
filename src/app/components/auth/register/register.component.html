@@ -1,1 +1,50 @@
-<p>register works!</p>
+<div class="container">
+  <div class="form-container">
+    <form>
+      <h1>Registration</h1>
+
+      <div class="input-container">
+        <input type="text" id="username1" [(ngModel)]="_firstName" name="firstName"
+               (focus)="onFocus($event)"
+               (blur)="onBlur($event)"
+               [attr.placeholder]="placeholder['firstName']" required />
+        <label for="username1">First Name</label>
+      </div>
+
+      <div class="input-container">
+        <input type="text" id="username2" [(ngModel)]="_lastName" name="lastName"
+               (focus)="onFocus($event)"
+               (blur)="onBlur($event)"
+               [attr.placeholder]="placeholder['lastName']" required />
+        <label for="username2">Last Name</label>
+      </div>
+
+      <div class="input-container">
+        <input type="email" id="email" [(ngModel)]="_email" name="email"
+               (focus)="onFocus($event)"
+               (blur)="onBlur($event)"
+               [attr.placeholder]="placeholder['email']" required
+               customEmail />
+        <label for="email">Email</label>
+      </div>
+
+      <div class="input-container">
+        <input type="password" id="password" [(ngModel)]="_password" name="password"
+               (focus)="onFocus($event)"
+               (blur)="onBlur($event)"
+               [attr.placeholder]="placeholder['password']" required
+               customPassword />
+        <label for="password">Password</label>
+      </div>
+
+      <button (click)="Authorize()" type="submit">
+        <span *ngIf="!isLoading">Register</span>
+        <i *ngIf="isLoading" class="fa fa-spinner fa-spin"></i>
+        <i *ngIf="!isLoading" class="fa fa-arrow-right"></i>
+      </button>
+    </form>
+  </div>
+  <div class="image-container">
+    <img src="../../../../assets/images/RegisterBanner.jpg" alt="Image">
+  </div>
+</div>
