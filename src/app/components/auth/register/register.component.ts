@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PlaceholderDictionary } from 'src/app/models/PlaceholderDictionary';
-import { ILecturer } from '../lecturer-model';
+import { ILecturerRegister } from '../lecturer-model';
 import { AuthService } from '../auth.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  lecturer: ILecturer = {
+  lecturer: ILecturerRegister = {
     firstName: '',
     lastName: '',
     email: '',

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="form-container">
+    <form #loginForm="ngForm">
+      <h1>Login</h1>
+
+      <div class="input-container">
+        <input type="email" id="loginEmail" [(ngModel)]="lecturer.email" name="email" #emailCtrl="ngModel"
+          (focus)="onFocus($event)" (blur)="onBlur($event)" [attr.placeholder]="placeholder['email']" required
+          customEmail />
+        <label for="loginEmail">Email</label>
+        <span *ngIf="emailCtrl.invalid && emailCtrl.touched">Invalid Email</span>
+      </div>
+
+      <div class="input-container">
+        <input type="password" id="loginPassword" [(ngModel)]="lecturer.password" name="password" #passwordCtrl="ngModel"
+          (focus)="onFocus($event)" (blur)="onBlur($event)" [attr.placeholder]="placeholder['password']" required
+          customPassword />
+        <label for="loginPassword">Password</label>
+        <span *ngIf="passwordCtrl.invalid && passwordCtrl.touched">Invalid Password</span>
+      </div>
+
+      <button (click)="Login()" type="submit" [disabled]="!loginForm.form.valid || !loginForm.form.dirty"
+        [ngClass]="{ 'disabled-button': !loginForm.form.valid || !loginForm.form.dirty, 'enabled-button': loginForm.form.valid && loginForm.form.dirty }">
+        <span *ngIf="!isLoading">Login</span>
+        <i *ngIf="isLoading" class="fa fa-spinner fa-spin"></i>
+        <i *ngIf="!isLoading" class="fa fa-arrow-right"></i>
+      </button>
+      <a routerLink="/auth/Register">Or Sign Up</a>
+    </form>
+  </div>
+  <div class="image-container">
+    <img src="../../../../assets/images/RegisterBanner.jpg" alt="Image">
+  </div>
+</div>

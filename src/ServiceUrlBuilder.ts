@@ -9,4 +9,12 @@ export class ServiceUrlBuilder {
   public static buildRootUrl(url: string) {
     return this.DOMAIN_URL + url;
   }
+
+  public static buildLoginUrl(email: string, password: string): string {
+    const baseUrl = ServiceUrlBuilder.buildRootUrl('Lecturer/Login');
+    const encodedEmail = encodeURIComponent(email);
+    const encodedPassword = encodeURIComponent(password);
+
+    return `${baseUrl}?email=${encodedEmail}&password=${encodedPassword}`;
+  }
 }

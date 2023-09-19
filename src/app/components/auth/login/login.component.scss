@@ -1,0 +1,151 @@
+.container {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+  align-items: stretch;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fff;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  .form-container {
+    flex: 1;
+    padding: 20px;
+    border-radius: 8px 0 0 8px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1 {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    form {
+      width: 500px;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+
+    }
+
+    .icon-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+
+      i {
+        color: peru;
+      }
+    }
+    .input-container {
+      position: relative;
+      padding: 25px 0 10px 0;
+
+      input {
+        width: 100%;
+        padding: 16px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        transition: border-color 0.3s;
+
+
+        &:focus {
+          outline: none;
+          border-color: peru;
+        }
+      }
+
+      label {
+        position: absolute;
+        left: 16px;
+        top: -10px;
+        padding: 25px 0 10px 0;
+        transition: all 0.3s ease;
+        top: -10px;
+        font-size: 15px;
+        font-weight: 500;
+        color: peru;
+        background-color: #fff;
+        border-radius: 4px;
+      }
+    }
+
+    button {
+      padding: 12px 24px;
+      background-color: purple;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 250ms;
+
+      &:hover {
+        background-color: peru;
+
+        i.fa-arrow-right{
+          margin-left: 12px;
+        }
+      }
+
+      i.fa-arrow-right {
+        margin-left: 8px;
+      }
+
+      i.fa-spinner {
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+
+  .image-container {
+    flex: 1.3;
+    margin: 0;
+    padding: 0;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 0px 12px 12px 0px;
+    }
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+
+
+.disabled-button{
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+::ng-deep .invalid-border,
+::ng-deep .invalid-border:focus {
+  border-color: red !important;
+}
+
+::ng-deep .valid-border,
+::ng-deep .valid-border:focus {
+  border-color: green !important;
+}
