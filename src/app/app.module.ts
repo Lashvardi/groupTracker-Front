@@ -17,28 +17,18 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { CustomEmailValidator } from './directives/validators/email-validator.directive';
 import { CustomPasswordValidator } from './directives/validators/password-validator.directive';
-import { AuthService } from './components/auth/auth.service';
 import { PasswordMatchValidator } from './directives/validators/password-match.validator.directive';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { AdditionalCompaniesStepComponent } from './components/auth/additional-companies-step/additional-companies-step.component';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-import { AuthWrapperComponent } from './components/auth/auth-wrapper.component';
+import { AuthWrapperComponent } from './components/auth/extensions/auth-wrapper.component';
 
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    RegisterComponent,
-    LoginComponent,
-    CustomEmailValidator,
-    CustomPasswordValidator,
-    PasswordMatchValidator,
-    AdditionalCompaniesStepComponent,
-    AuthWrapperComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -46,10 +36,7 @@ registerLocaleData(en);
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    NzModalModule,
-    NzMessageModule,
-    NzTagModule,
-    NzIconModule,
+
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],

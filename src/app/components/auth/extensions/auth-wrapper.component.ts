@@ -14,7 +14,6 @@ import { Component } from '@angular/core';
       </ng-container>
     </div>
   `,
-  styles: [],
 })
 export class AuthWrapperComponent {
   currentStep = 1;

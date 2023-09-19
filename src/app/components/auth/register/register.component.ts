@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { PlaceholderDictionary } from 'src/app/models/PlaceholderDictionary';
-import { ILecturerRegister } from '../lecturer-model';
-import { AuthService } from '../auth.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { ActivatedRoute, Router } from '@angular/router';
 import { fadeAnimation } from 'src/app/animations/animations';
+import { AuthService } from '../extensions/auth.service';
+import { ILecturerRegister } from '../extensions/lecturer-model';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',

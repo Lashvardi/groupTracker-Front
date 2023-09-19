@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { PlaceholderDictionary } from 'src/app/models/PlaceholderDictionary';
-import { AuthService } from '../auth.service';
-import { ILecturerLogin, ILecturerRegister } from '../lecturer-model';
+import { AuthService } from '../extensions/auth.service';
+import { ILecturerLogin } from '../extensions/lecturer-model';
 
 @Component({
   selector: 'app-login',

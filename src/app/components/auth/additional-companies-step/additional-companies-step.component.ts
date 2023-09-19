@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { fadeAnimation } from '../../../animations/animations';
-import { AuthService } from '../auth.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { Router } from '@angular/router';
-import { ILecturerRegister } from '../lecturer-model';
+import { AuthService } from '../extensions/auth.service';
+import { ILecturerRegister } from '../extensions/lecturer-model';
 
 @Component({
   selector: 'app-additional-companies-step',
