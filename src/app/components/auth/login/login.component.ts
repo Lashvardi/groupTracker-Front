@@ -30,7 +30,6 @@ export class LoginComponent {
   ) {}
   Login() {
     this.isLoading = true;
-    alert(JSON.stringify(this.lecturer));
     this._authService.loginLecturer(this.lecturer).subscribe({
       next: (data) => {
         this.isLoading = false;

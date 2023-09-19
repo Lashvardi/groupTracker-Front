@@ -8,6 +8,7 @@ import { ILecturerLogin, ILecturerRegister, IToken } from './lecturer-model';
 })
 export class AuthService {
   constructor(private _http: HttpClient) {}
+  private tempLecturerData: ILecturerRegister | null = null;
 
   registerLecturer(
     lecturerData: ILecturerRegister
@@ -35,6 +36,21 @@ export class AuthService {
     return this._http.post<string>(url, {}, options);
   }
 
+  setTempLecturerData(lecturerData: ILecturerRegister): void {
+    this.tempLecturerData = lecturerData;
+  }
+
+  getTempLecturerData(): ILecturerRegister | null {
+    return this.tempLecturerData;
+  }
+
+  finalizeRegistration(): Observable<ILecturerRegister> {
+    if (this.tempLecturerData) {
+      return this.registerLecturer(this.tempLecturerData);
+    }
+    throw new Error('No data to send');
+  }
+  
   setToken(token: string) {
     localStorage.setItem('token', token);
   }
