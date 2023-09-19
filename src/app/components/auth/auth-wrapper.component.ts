@@ -1,7 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { trigger, transition, style, animate } from '@angular/animations';
-import { fadeAnimation } from '../../animations/animations';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-auth-wrapper',
@@ -18,7 +15,6 @@ import { fadeAnimation } from '../../animations/animations';
     </div>
   `,
   styles: [],
-  animations: [fadeAnimation],
 })
 export class AuthWrapperComponent {
   currentStep = 1;

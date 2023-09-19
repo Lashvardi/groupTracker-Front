@@ -48,25 +48,7 @@ export class RegisterComponent {
 
     this.isLoading = false;
 
-    // this._authService.registerLecturer(this.lecturer).subscribe({
-    //   next: (data) => {
-    //     this.isLoading = false;
-    //     this._message.success("You've successfully registered!");
-    //     setTimeout(() => {
-    //       this._router.navigate(['/auth/Login']);
-    //     }, 200);
-    //   },
-    //   error: (err) => {
-    //     this.isLoading = false;
-    //     if (err && err.error && err.error.message) {
-    //       this._message.error(`Registration failed: ${err.error.message}`);
-    //     } else {
-    //       this._message.error(`Registration failed: ${err.message}`);
-    //     }
-    //     console.log(err);
-    //   },
-    //   complete: () => {},
-    // });
+
   }
 
   onFocus(event: FocusEvent): void {
