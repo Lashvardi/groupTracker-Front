@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { AuthWrapperComponent } from '../extensions/auth-wrapper.component';
 import { LoginComponent } from '../login/login.component';
+import { NoAuthGuard } from 'src/app/guards/no-auth.guard';
 
 const routes: Routes = [
   {
