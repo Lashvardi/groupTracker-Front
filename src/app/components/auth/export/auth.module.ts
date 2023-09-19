@@ -5,7 +5,7 @@ import { AdditionalCompaniesStepComponent } from '../additional-companies-step/a
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import { AuthWrapperComponent } from '../extensions/auth-wrapper.component';
-import { EmailValidator, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PasswordMatchValidator } from 'src/app/directives/validators/password-match.validator.directive';
 import { CustomEmailValidator } from 'src/app/directives/validators/email-validator.directive';
 import { CustomPasswordValidator } from 'src/app/directives/validators/password-validator.directive';
@@ -13,6 +13,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzTagModule } from 'ng-zorro-antd/tag';
+import { VerifyAccountComponent } from '../verify-account/verify-account.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { NzTagModule } from 'ng-zorro-antd/tag';
     PasswordMatchValidator,
     CustomEmailValidator,
     CustomPasswordValidator,
+    VerifyAccountComponent,
   ],
 })
 export class AuthModule {}

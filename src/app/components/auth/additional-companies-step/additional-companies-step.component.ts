@@ -23,11 +23,8 @@ export class AdditionalCompaniesStepComponent {
     companies: '',
   };
 
-  constructor(
-    private _authService: AuthService,
-    private _message: NzMessageService,
-    private _router: Router
-  ) {
+  @Output() nextStep = new EventEmitter<void>();
+  constructor(private _authService: AuthService) {
     this.lecturer =
       this._authService.getTempLecturerData() as ILecturerRegister;
   }
@@ -53,24 +50,6 @@ export class AdditionalCompaniesStepComponent {
       companies: companiesCsv,
     });
 
-    this._authService.finalizeRegistration().subscribe({
-      next: (data) => {
-        this.isLoading = false;
-        this._message.success("You've successfully registered!");
-        setTimeout(() => {
-          this._router.navigate(['/auth/Login']);
-        }, 200);
-      },
-      error: (err) => {
-        this.isLoading = false;
-        if (err && err.error && err.error.message) {
-          this._message.error(`Registration failed: ${err.error.message}`);
-        } else {
-          this._message.error(`Registration failed: ${err.message}`);
-        }
-        console.log(err);
-      },
-      complete: () => {},
-    });
+    this.nextStep.emit();
   }
 }
