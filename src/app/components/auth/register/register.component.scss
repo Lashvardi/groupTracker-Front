@@ -1,6 +1,7 @@
 .container {
   display: flex;
   justify-content: flex-start;
+  flex-direction: row-reverse;
   align-items: stretch;
   height: 100vh;
   margin: 0;
@@ -123,13 +124,20 @@
       height: 100%;
       width: 100%;
       object-fit: cover;
-      border-radius: 12px 0px 0px 12px;
+      border-radius: 0px 12px 12px 0px;
     }
 
     @media (max-width: 768px) {
       display: none;
     }
   }
+}
+
+
+
+.disabled-button{
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 ::ng-deep .invalid-border,
@@ -141,10 +149,3 @@
 ::ng-deep .valid-border:focus {
   border-color: green !important;
 }
-
-.disabled-button{
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-
-

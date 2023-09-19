@@ -4,30 +4,40 @@
       <h1>Registration</h1>
 
       <div class="input-container">
-        <input type="text" id="username1" [(ngModel)]="_firstName" name="firstName" (focus)="onFocus($event)"
-          (blur)="onBlur($event)" [attr.placeholder]="placeholder['firstName']" required />
+        <input type="text" id="username1" [(ngModel)]="lecturer.firstName" name="firstName" #firstNameCtrl="ngModel"
+          (focus)="onFocus($event)" (blur)="onBlur($event)" [attr.placeholder]="placeholder['firstName']" required
+          [ngClass]="{'valid-border': firstNameCtrl.valid && firstNameCtrl.dirty }" />
         <label for="username1">First Name</label>
       </div>
 
       <div class="input-container">
-        <input type="text" id="username2" [(ngModel)]="_lastName" name="lastName" (focus)="onFocus($event)"
-          (blur)="onBlur($event)" [attr.placeholder]="placeholder['lastName']" required />
+        <input type="text" id="username2" [(ngModel)]="lecturer.lastName" name="lastName" #lastNameCtrl="ngModel"
+          (focus)="onFocus($event)" (blur)="onBlur($event)" [attr.placeholder]="placeholder['lastName']" required
+          [ngClass]="{'valid-border': lastNameCtrl.valid && lastNameCtrl.dirty }" />
         <label for="username2">Last Name</label>
       </div>
 
       <div class="input-container">
-        <input type="email" id="email" [(ngModel)]="_email" name="email" #emailCtrl="ngModel" (focus)="onFocus($event)"
-          (blur)="onBlur($event)" [attr.placeholder]="placeholder['email']" required customEmail />
+        <input type="email" id="email" [(ngModel)]="lecturer.email" name="email" #emailCtrl="ngModel"
+          (focus)="onFocus($event)" (blur)="onBlur($event)" [attr.placeholder]="placeholder['email']" required
+          customEmail />
         <label for="email">Email</label>
         <span *ngIf="emailCtrl.invalid && emailCtrl.touched">Invalid Email</span>
       </div>
 
       <div class="input-container">
-        <input type="password" id="password" [(ngModel)]="_password" name="password" #passwordCtrl="ngModel"
+        <input type="password" id="password" [(ngModel)]="lecturer.password" name="password" #passwordCtrl="ngModel"
           (focus)="onFocus($event)" (blur)="onBlur($event)" [attr.placeholder]="placeholder['password']" required
           customPassword />
         <label for="password">Password</label>
         <span *ngIf="passwordCtrl.invalid && passwordCtrl.touched">Invalid Password</span>
+      </div>
+
+      <div class="input-container">
+        <input type="password" id="confirmPassword" [(ngModel)]="_confirmPassword" name="confirmPassword"
+          #confirmPasswordCtrl="ngModel" (focus)="onFocus($event)" (blur)="onBlur($event)"
+          [attr.placeholder]="placeholder['confirmPassword']" [passwordMatch]="lecturer.password" required />
+        <label for="confirmPassword">Confirm Password</label>
       </div>
 
       <button (click)="Authorize()" type="submit" [disabled]="!myForm.form.valid || !myForm.form.dirty"
@@ -36,6 +46,7 @@
         <i *ngIf="isLoading" class="fa fa-spinner fa-spin"></i>
         <i *ngIf="!isLoading" class="fa fa-arrow-right"></i>
       </button>
+      <a routerLink="/auth/Login">Or Sign In</a>
     </form>
   </div>
   <div class="image-container">
