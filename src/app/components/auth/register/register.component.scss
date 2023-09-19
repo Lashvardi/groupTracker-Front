@@ -55,6 +55,10 @@
         transition: border-color 0.3s;
 
 
+        &:focus {
+          outline: none;
+          border-color: peru;
+        }
       }
 
       label {
@@ -127,3 +131,20 @@
     }
   }
 }
+
+::ng-deep .invalid-border,
+::ng-deep .invalid-border:focus {
+  border-color: red !important;
+}
+
+::ng-deep .valid-border,
+::ng-deep .valid-border:focus {
+  border-color: green !important;
+}
+
+.disabled-button{
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+

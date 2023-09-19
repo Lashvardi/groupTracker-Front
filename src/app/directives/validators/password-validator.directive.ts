@@ -1,4 +1,10 @@
-import { Directive, forwardRef, Renderer2, ElementRef, HostListener } from '@angular/core';
+import {
+  Directive,
+  forwardRef,
+  Renderer2,
+  ElementRef,
+  HostListener,
+} from '@angular/core';
 import {
   NG_VALIDATORS,
   Validator,
@@ -34,10 +40,12 @@ export class CustomPasswordValidator implements Validator {
     const valid = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(value);
 
     if (valid) {
-      this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', 'white');
+      this.renderer.removeClass(this.el.nativeElement, 'invalid-border');
+      this.renderer.addClass(this.el.nativeElement, 'valid-border');
       return null;
     } else {
-      this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', 'red');
+      this.renderer.removeClass(this.el.nativeElement, 'valid-border');
+      this.renderer.addClass(this.el.nativeElement, 'invalid-border');
       return { customPassword: true };
     }
   }
