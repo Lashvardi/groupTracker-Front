@@ -1,19 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NoAuthGuard } from './guards/no-auth.guard';
-import { HomeComponent } from './components/dashboard/home/home.component';
+import { HomeComponent } from './modules/dashboard/home/home.component';
 
 const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () =>
-      import('./components/auth/export/auth.module').then((m) => m.AuthModule),
+      import('./modules/auth/export/auth.module').then((m) => m.AuthModule),
   },
   {
-    path: '',
-    component: HomeComponent,
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./modules/dashboard/export/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
     canActivate: [NoAuthGuard],
-  }
+  },
 ];
 
 @NgModule({

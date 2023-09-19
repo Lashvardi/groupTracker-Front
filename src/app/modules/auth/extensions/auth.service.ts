@@ -50,7 +50,7 @@ export class AuthService {
     }
     throw new Error('No data to send');
   }
-  
+
   setToken(token: string) {
     localStorage.setItem('token', token);
   }
