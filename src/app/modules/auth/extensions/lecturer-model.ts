@@ -2,6 +2,7 @@ export interface ILecturerRegister {
   firstName: string;
   lastName: string;
   email: string;
+  subjects: string;
   password: string;
   companies: string;
 }

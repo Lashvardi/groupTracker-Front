@@ -3,6 +3,7 @@ import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { AuthWrapperComponent } from '../extensions/auth-wrapper.component';
 import { LoginComponent } from '../login/login.component';
 import { NoAuthGuard } from 'src/app/guards/no-auth.guard';
+import { TeacherSubjectsComponent } from '../teacher-subjects/teacher-subjects.component';
 
 const routes: Routes = [
   {

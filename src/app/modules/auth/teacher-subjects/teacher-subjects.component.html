@@ -1,0 +1,28 @@
+<div @fadeAnimation class="container">
+  <div class="form-container">
+    <form (ngSubmit)="onSubmit()">
+      <h1>Add Subjects</h1>
+      <p>provide a list of subjects you teach</p>
+      <div class="input-container">
+
+        <div class="input-button-container">
+          <input type="text" nz-input placeholder="Add a subject" [formControl]="SubjectControl"
+            (keydown.enter)="addCompany()">
+          <button type="button" class="add-company-button" (click)="addCompany()"
+            [disabled]="!SubjectControl.valid">Add</button>
+        </div>
+        <label for="companyInput">Subjcets</label>
+
+      </div>
+      <nz-tag (click)="removeCompany(subject)" *ngFor="let subject of Subjects">
+        {{subject}}
+        <i nz-icon nzType="close"></i>
+      </nz-tag>
+      <button type="button" (click)="onSubmit()">Next Step</button>
+    </form>
+
+  </div>
+  <div class="image-container">
+    <img src="../../../../assets/images/SubjectsBanner.jpg" alt="Image">
+  </div>
+</div>

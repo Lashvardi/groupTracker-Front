@@ -33,6 +33,8 @@ export class LoginComponent {
     this._authService.loginLecturer(this.lecturer).subscribe({
       next: (data) => {
         this.isLoading = false;
+
+        this._authService.setToken(data);
         setTimeout(() => {
           this._router.navigate(['/']);
         }, 200);
@@ -44,14 +46,11 @@ export class LoginComponent {
 
         if (err && err.error) {
           try {
-            // Try to parse the JSON string into an object
             const parsedError = JSON.parse(err.error);
-            // If the object has a 'message' property, use it
             if (parsedError && parsedError.message) {
               errorMessage = parsedError.message;
             }
           } catch (e) {
-            // If parsing fails, log the exception but don't change the errorMessage
             console.error('Could not parse error message:', e);
           }
         }

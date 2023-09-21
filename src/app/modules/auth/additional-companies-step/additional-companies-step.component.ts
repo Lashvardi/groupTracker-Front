@@ -18,6 +18,7 @@ export class AdditionalCompaniesStepComponent {
   lecturer: ILecturerRegister = {
     firstName: '',
     lastName: '',
+    subjects: '',
     email: '',
     password: '',
     companies: '',

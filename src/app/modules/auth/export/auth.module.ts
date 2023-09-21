@@ -14,6 +14,7 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { VerifyAccountComponent } from '../verify-account/verify-account.component';
+import { TeacherSubjectsComponent } from '../teacher-subjects/teacher-subjects.component';
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import { VerifyAccountComponent } from '../verify-account/verify-account.compone
     CustomEmailValidator,
     CustomPasswordValidator,
     VerifyAccountComponent,
+    TeacherSubjectsComponent,
   ],
 })
 export class AuthModule {}

@@ -10,12 +10,16 @@ import { Component } from '@angular/core';
       </ng-container>
 
       <ng-container *ngIf="currentStep === 2">
-        <app-additional-companies-step
-          (nextStep)="goToStep(3)"
-        ></app-additional-companies-step>
+        <app-teacher-subjects (nextStep)="goToStep(3)"></app-teacher-subjects>
       </ng-container>
 
       <ng-container *ngIf="currentStep === 3">
+        <app-additional-companies-step
+          (nextStep)="goToStep(4)"
+        ></app-additional-companies-step>
+      </ng-container>
+
+      <ng-container *ngIf="currentStep === 4">
         <app-verify-account></app-verify-account>
       </ng-container>
     </div>

@@ -33,6 +33,10 @@ export class VerifyAccountComponent {
         (res) => {
           this.isLoading = false;
           this._message.success("You've successfully registered!");
+
+          setTimeout(() => {
+            this._router.navigate(['/auth/Login']);
+          }, 200);
         },
         (err) => {
           this.isLoading = false;

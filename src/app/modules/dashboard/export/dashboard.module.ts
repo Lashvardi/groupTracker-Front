@@ -8,7 +8,8 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { HomeComponent } from '../home/home.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-
+import { TeacherSubjectsComponent } from '../../auth/teacher-subjects/teacher-subjects.component';
+import {NzLayoutModule} from 'ng-zorro-antd/layout';
 @NgModule({
   imports: [
     CommonModule,
@@ -19,6 +20,8 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     NzTagModule,
     NzIconModule,
     ReactiveFormsModule,
+    NzLayoutModule,
+
   ],
   declarations: [HomeComponent],
 })

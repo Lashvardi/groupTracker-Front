@@ -16,6 +16,7 @@ export class RegisterComponent {
     firstName: '',
     lastName: '',
     email: '',
+    subjects: '',
     password: '',
     companies: '',
   };
