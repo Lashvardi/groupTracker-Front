@@ -33,8 +33,6 @@ export class LoginComponent {
     this._authService.loginLecturer(this.lecturer).subscribe({
       next: (data) => {
         this.isLoading = false;
-        this._message.success(data);
-        this._authService.setToken(data);
         setTimeout(() => {
           this._router.navigate(['/']);
         }, 200);
@@ -54,7 +52,7 @@ export class LoginComponent {
             }
           } catch (e) {
             // If parsing fails, log the exception but don't change the errorMessage
-            console.error("Could not parse error message:", e);
+            console.error('Could not parse error message:', e);
           }
         }
 

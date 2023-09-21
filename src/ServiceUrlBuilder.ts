@@ -17,4 +17,13 @@ export class ServiceUrlBuilder {
 
     return `${baseUrl}?email=${encodedEmail}&password=${encodedPassword}`;
   }
+
+  public static buildVerifyAccountUrl(email?: string, code?: string): string {
+    const baseUrl = ServiceUrlBuilder.buildRootUrl('Lecturer/verify');
+
+    const encodedEmail = encodeURIComponent(email || '');
+    const encodedCode = encodeURIComponent(code || '');
+
+    return `${baseUrl}?email=${encodedEmail}&token=${encodedCode}`;
+  }
 }

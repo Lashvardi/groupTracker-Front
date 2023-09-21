@@ -14,25 +14,30 @@ import { fadeAnimation } from 'src/app/animations/animations';
 export class VerifyAccountComponent {
   isLoading = false;
   verificationCode!: string;
+  email?: string = '' || this._authService.getTempLecturerData()?.email;
 
   constructor(
     private _authService: AuthService,
     private _message: NzMessageService,
     private _router: Router
-  ) {}
+  ) {
+    this.email = this._authService.getTempLecturerData()?.email;
+  }
 
   verifyCode() {
     this.isLoading = true;
     // Verify the code through your AuthService
-    this._authService.verifyAccount(this.verificationCode).subscribe(
-      (res) => {
-        this.isLoading = false;
-        this._message.success("You've successfully registered!");
-      },
-      (err) => {
-        this.isLoading = false;
-        this._message.error('Verification failed. Please try again.');
-      }
-    );
+    this._authService
+      .verifyAccount(this.email, this.verificationCode)
+      .subscribe(
+        (res) => {
+          this.isLoading = false;
+          this._message.success("You've successfully registered!");
+        },
+        (err) => {
+          this.isLoading = false;
+          this._message.error('Verification failed. Please try again.');
+        }
+      );
   }
 }

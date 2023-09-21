@@ -37,8 +37,16 @@ export class AuthService {
     return this._http.post<any>(url, {}, options);
   }
 
-  verifyAccount(code: string): Observable<any> {
-    return of({ success: true });
+  verifyAccount(email?: string, code?: string): Observable<any> {
+    const url = ServiceUrlBuilder.buildVerifyAccountUrl(email, code);
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+    const options = {
+      headers,
+      responseType: 'text' as 'json',
+    };
+
+    return this._http.post<any>(url, {}, options);
   }
 
   setTempLecturerData(lecturerData: ILecturerRegister): void {

@@ -24,7 +24,10 @@ export class AdditionalCompaniesStepComponent {
   };
 
   @Output() nextStep = new EventEmitter<void>();
-  constructor(private _authService: AuthService) {
+  constructor(
+    private _authService: AuthService,
+    private _message: NzMessageService
+  ) {
     this.lecturer =
       this._authService.getTempLecturerData() as ILecturerRegister;
   }
@@ -49,7 +52,19 @@ export class AdditionalCompaniesStepComponent {
       ...this.lecturer,
       companies: companiesCsv,
     });
-
-    this.nextStep.emit();
+    this._authService.finalizeRegistration().subscribe({
+      next: (data) => {
+        console.log(data);
+        this.nextStep.emit();
+      },
+      error: (err) => {
+        console.log(err);
+        this._message.error(err.error);
+      },
+      complete: () => {
+        console.log('complete');
+        this.nextStep.emit();
+      },
+    });
   }
 }
