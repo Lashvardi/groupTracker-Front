@@ -1,1 +1,21 @@
-<p @fadeAnimation>verify-account works!</p>
+<div @fadeAnimation class="container">
+    <div class="form-container">
+      <form #verifyForm="ngForm" (ngSubmit)="verifyCode()">
+        <h1>Verify Account</h1>
+        <div class="input-container">
+          <input type="text" id="verificationCode" name="verificationCode" [(ngModel)]="verificationCode" #verificationCodeCtrl="ngModel" required>
+          <label for="verificationCode">Enter Verification Code</label>
+          <span *ngIf="verificationCodeCtrl.invalid && verificationCodeCtrl.touched">Invalid Code</span>
+        </div>
+  
+        <button type="submit" [disabled]="!verifyForm.valid">
+          <span *ngIf="!isLoading">Verify</span>
+          <i *ngIf="isLoading" class="fa fa-spinner fa-spin"></i>
+        </button>
+      </form>
+    </div>
+    <div class="image-container">
+      <img src="../../../../assets/images/RegisterBanner.jpg" alt="Image">
+    </div>
+  </div>
+  
