@@ -20,7 +20,9 @@ export class AuthService {
     );
   }
 
-  loginLecturer(lecturerData: ILecturerLogin): Observable<string> {
+  // https://localhost:7273/Lecturer/login?email=lashadev0%40gmail.com&password=Rokorato123
+
+  loginLecturer(lecturerData: ILecturerLogin): Observable<any> {
     const url = ServiceUrlBuilder.buildLoginUrl(
       lecturerData.email,
       lecturerData.password
@@ -32,7 +34,7 @@ export class AuthService {
       responseType: 'text' as 'json',
     };
 
-    return this._http.post<string>(url, {}, options);
+    return this._http.post<any>(url, {}, options);
   }
 
   verifyAccount(code: string): Observable<any> {

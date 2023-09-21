@@ -41,11 +41,24 @@ export class LoginComponent {
       },
       error: (err) => {
         this.isLoading = false;
-        if (err && err.error && err.error.message) {
-          this._message.error(`Login failed: ${err.error.message}`);
-        } else {
-          this._message.error(`Login failed: ${err.message}`);
+
+        let errorMessage = 'An unknown error occurred';
+
+        if (err && err.error) {
+          try {
+            // Try to parse the JSON string into an object
+            const parsedError = JSON.parse(err.error);
+            // If the object has a 'message' property, use it
+            if (parsedError && parsedError.message) {
+              errorMessage = parsedError.message;
+            }
+          } catch (e) {
+            // If parsing fails, log the exception but don't change the errorMessage
+            console.error("Could not parse error message:", e);
+          }
         }
+
+        this._message.error(`Login failed: ${errorMessage}`);
         console.log(err);
       },
       complete: () => {},

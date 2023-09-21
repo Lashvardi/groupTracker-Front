@@ -27,8 +27,7 @@ export class VerifyAccountComponent {
     this._authService.verifyAccount(this.verificationCode).subscribe(
       (res) => {
         this.isLoading = false;
-        this._message.success('Account verified successfully.');
-        this._router.navigate(['/dashboard']);
+        this._message.success("You've successfully registered!");
       },
       (err) => {
         this.isLoading = false;
