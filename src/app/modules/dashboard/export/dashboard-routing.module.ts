@@ -9,6 +9,11 @@ const routes: Routes = [
     component: HomeComponent,
     canActivate: [NoAuthGuard],
   },
+  {
+    path: 'extensions',
+    component: HomeComponent,
+    canActivate: [NoAuthGuard],
+  },
 ];
 
 @NgModule({

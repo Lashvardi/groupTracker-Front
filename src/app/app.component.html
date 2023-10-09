@@ -1,9 +1,17 @@
-<div class="wrapper">
-  <div class="side_menu_container" *ngIf="_autService.isLoggedIn()">
-    <app-navbar></app-navbar>
-  </div>
+<div *ngIf="_authService.isLoggedIn(); else simpleLayout">
+  <div class="wrapper">
+    <div class="side-menu-container">
+      <app-navbar></app-navbar>
+    </div>
 
-  <div class="container">
-    <router-outlet></router-outlet>
+    <div class="container-wrapper">
+      <div class="main-content-container">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
   </div>
 </div>
+
+<ng-template #simpleLayout>
+  <router-outlet></router-outlet>
+</ng-template>

@@ -26,4 +26,13 @@ export class ServiceUrlBuilder {
 
     return `${baseUrl}?email=${encodedEmail}&token=${encodedCode}`;
   }
+
+  public static buildGetSessionsForLecturerUrl(lecturerId: number): string {
+    const baseUrl = ServiceUrlBuilder.buildRootUrl(
+      'Group/get-sessions-for-lecturer'
+    );
+    const encodedLecturerId = encodeURIComponent(lecturerId.toString());
+
+    return `${baseUrl}?lecturerId=${encodedLecturerId}`;
+  }
 }
