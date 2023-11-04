@@ -19,7 +19,7 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 
-
+import { GroupManagerRoutingModule } from './modules/group-manager/export/group-manager.routing.module';
 registerLocaleData(en);
 
 @NgModule({
@@ -35,6 +35,7 @@ registerLocaleData(en);
     NzMenuModule,
     NzIconModule,
     NzButtonModule,
+    GroupManagerRoutingModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],

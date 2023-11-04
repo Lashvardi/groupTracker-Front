@@ -17,6 +17,13 @@ const routes: Routes = [
       ),
     canActivate: [NoAuthGuard],
   },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./modules/group-manager/export/group-manager.module').then(
+        (m) => m.GroupManagerModule
+      ),
+  },
 ];
 
 @NgModule({

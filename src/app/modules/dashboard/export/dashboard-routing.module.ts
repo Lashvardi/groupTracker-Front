@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { NoAuthGuard } from 'src/app/guards/no-auth.guard';
 import { HomeComponent } from '../home/home.component';
+import { CalendarComponent } from '../calendar/calendar.component';
 
 const routes: Routes = [
   {
@@ -10,8 +11,8 @@ const routes: Routes = [
     canActivate: [NoAuthGuard],
   },
   {
-    path: 'extensions',
-    component: HomeComponent,
+    path: 'Calendar',
+    component: CalendarComponent,
     canActivate: [NoAuthGuard],
   },
 ];

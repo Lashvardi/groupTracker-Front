@@ -20,8 +20,6 @@ export class AuthService {
     );
   }
 
-  // https://localhost:7273/Lecturer/login?email=lashadev0%40gmail.com&password=Rokorato123
-
   loginLecturer(lecturerData: ILecturerLogin): Observable<any> {
     const url = ServiceUrlBuilder.buildLoginUrl(
       lecturerData.email,
@@ -74,6 +72,8 @@ export class AuthService {
 
   logOut() {
     localStorage.removeItem(this.TOKEN_KEY);
+
+    location.reload();
   }
 
   isLoggedIn(): boolean {
