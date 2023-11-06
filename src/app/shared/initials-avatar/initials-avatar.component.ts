@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AuthService } from 'src/app/modules/auth/extensions/auth.service';
 
 @Component({
   selector: 'app-initials-avatar',
@@ -7,6 +8,8 @@ import { Component, Input } from '@angular/core';
 })
 export class InitialsAvatarComponent {
   private _fullName: string = '';
+  showDropdown: boolean = false;
+  constructor(private _authService: AuthService) {}
 
   @Input()
   set fullName(value: string) {
@@ -26,5 +29,14 @@ export class InitialsAvatarComponent {
       .map((n) => n[0])
       .join('')
       .toUpperCase();
+  }
+
+  toggleDropdown(): void {
+    this.showDropdown = !this.showDropdown;
+  }
+
+  logOutAction() {
+    // Logging out here!
+    this._authService.logOut();
   }
 }

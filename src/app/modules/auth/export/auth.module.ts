@@ -28,6 +28,7 @@ import { TeacherSubjectsComponent } from '../teacher-subjects/teacher-subjects.c
     NzTagModule,
     NzIconModule,
     ReactiveFormsModule,
+
     NzNotificationModule,
   ],
   declarations: [
