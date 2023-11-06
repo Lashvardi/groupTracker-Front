@@ -51,3 +51,11 @@
   }
 
 }
+
+.none{
+  color: #007dfc;
+  transition: 200ms;
+  &:hover{
+    color: #333;
+  }
+}

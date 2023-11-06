@@ -22,6 +22,8 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 import { GroupManagerRoutingModule } from './modules/group-manager/export/group-manager.routing.module';
 import { InitialsAvatarComponent } from './shared/initials-avatar/initials-avatar.component';
+import { LecturerProfileComponent } from './modules/profile/lecturer-profile/lecturer-profile.component';
+import { ProfileRoutingModule } from './modules/profile/export/profile-routing.module';
 registerLocaleData(en);
 
 @NgModule({
@@ -39,6 +41,7 @@ registerLocaleData(en);
     NzButtonModule,
     GroupManagerRoutingModule,
     NzDropDownModule,
+    ProfileRoutingModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],

@@ -1,18 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { NoAuthGuard } from 'src/app/guards/no-auth.guard';
-import { HomeComponent } from '../home/home.component';
-import { CalendarComponent } from '../calendar/calendar.component';
+import { LecturerProfileComponent } from '../lecturer-profile/lecturer-profile.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
-    canActivate: [NoAuthGuard],
-  },
-  {
-    path: 'Calendar',
-    component: CalendarComponent,
+    component: LecturerProfileComponent,
     canActivate: [NoAuthGuard],
   },
 ];
@@ -21,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class DashboardRoutingModule {}
+export class ProfileModule {}

@@ -16,12 +16,20 @@ const routes: Routes = [
       import('./modules/dashboard/export/dashboard.module').then(
         (m) => m.DashboardModule
       ),
+    canActivate: [NoAuthGuard],
   },
   {
     path: '',
     loadChildren: () =>
       import('./modules/group-manager/export/group-manager.module').then(
         (m) => m.GroupManagerModule
+      ),
+  },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./modules/profile/export/profile.module').then(
+        (m) => m.ProfileModule
       ),
   },
 ];
