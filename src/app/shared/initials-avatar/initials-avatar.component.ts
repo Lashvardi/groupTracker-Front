@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NzModalService } from 'ng-zorro-antd/modal';
 import { AuthService } from 'src/app/modules/auth/extensions/auth.service';
 
 @Component({
@@ -9,7 +10,11 @@ import { AuthService } from 'src/app/modules/auth/extensions/auth.service';
 export class InitialsAvatarComponent {
   private _fullName: string = '';
   showDropdown: boolean = false;
-  constructor(private _authService: AuthService) {}
+  constructor(
+    private _authService: AuthService,
+    private _modal: NzModalService
+  ) {}
+  @Input() size: 'big' | 'small' = 'small';
 
   @Input()
   set fullName(value: string) {
@@ -38,5 +43,13 @@ export class InitialsAvatarComponent {
   logOutAction() {
     // Logging out here!
     this._authService.logOut();
+  }
+
+  callDetailsModal() {
+    this._modal.create({
+      nzTitle: 'User Details',
+      nzContent: `${this._fullName}`,
+      nzFooter: null,
+    });
   }
 }

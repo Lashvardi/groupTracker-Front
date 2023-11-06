@@ -21,13 +21,13 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 import { GroupManagerRoutingModule } from './modules/group-manager/export/group-manager.routing.module';
-import { InitialsAvatarComponent } from './shared/initials-avatar/initials-avatar.component';
-import { LecturerProfileComponent } from './modules/profile/lecturer-profile/lecturer-profile.component';
+import { SharedModule } from './shared/shared.module';
+import { ProfileModule } from './modules/profile/export/profile.module';
 import { ProfileRoutingModule } from './modules/profile/export/profile-routing.module';
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent, InitialsAvatarComponent, NavbarComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -41,8 +41,11 @@ registerLocaleData(en);
     NzButtonModule,
     GroupManagerRoutingModule,
     NzDropDownModule,
+    SharedModule,
     ProfileRoutingModule,
+    ProfileModule
   ],
+  exports: [],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
 })

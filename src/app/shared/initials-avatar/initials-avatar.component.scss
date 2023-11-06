@@ -12,6 +12,26 @@
   font-size: 20px;
 }
 
+.avatar-bigger{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 32px;
+  border: #000 5px solid;
+  transition: 200ms;
+
+  &:hover{
+      background-color: #0586cb;
+    }
+}
+
 
 .dropdown-menu {
   z-index: 150;

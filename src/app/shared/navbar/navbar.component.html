@@ -19,12 +19,12 @@
   </div>
 
 
-  <div *ngIf="!_autService.isLoggedIn()" class="nav-text" class="right-side">
-    <a class="nav-text" routerLink="auth/Login">Sign In</a>
-    <a class="nav-text get-started" routerLink="auth/Register">Get Started</a>
+  <div *ngIf="!_autService.isTokenSet()" class="right-side">
+    <a class="nav-text" href="/auth/Login">Sign In</a>
+    <a class="nav-text get-started" href="/auth/Register">Get Started</a>
   </div>
 
-  <div *ngIf="_autService.isLoggedIn()" class="authorised-view">
+  <div *ngIf="_autService.isTokenSet()" class="authorised-view">
     <app-initials-avatar [fullName]="_autService.getLecturerName()"></app-initials-avatar>
   </div>
 

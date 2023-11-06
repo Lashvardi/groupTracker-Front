@@ -4,11 +4,12 @@ import { Observable, of } from 'rxjs';
 import { ServiceUrlBuilder } from 'src/ServiceUrlBuilder';
 import { ILecturerLogin, ILecturerRegister, IToken } from './lecturer-model';
 import jwtDecode from 'jwt-decode';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient, private _router: Router) {}
   private tempLecturerData: ILecturerRegister | null = null;
   private readonly TOKEN_KEY = 'token';
 
@@ -77,8 +78,19 @@ export class AuthService {
     location.reload();
   }
 
-  isLoggedIn(): boolean {
+  isTokenSet(): boolean {
     return !!this.getToken();
+  }
+
+  isLoggedIn(): boolean {
+    // Check if the token exists
+    const tokenExists = !!this.getToken();
+
+    // Check if the current route is the root ('/')
+    const onRootRoute = this._router.url === '/';
+
+    // Return true if the token exists or if on the root route
+    return tokenExists || onRootRoute;
   }
 
   getLecturerName(): string {
