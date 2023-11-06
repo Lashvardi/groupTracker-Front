@@ -1,3 +1,4 @@
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
@@ -27,6 +28,7 @@ import { TeacherSubjectsComponent } from '../teacher-subjects/teacher-subjects.c
     NzTagModule,
     NzIconModule,
     ReactiveFormsModule,
+    NzNotificationModule,
   ],
   declarations: [
     AdditionalCompaniesStepComponent,

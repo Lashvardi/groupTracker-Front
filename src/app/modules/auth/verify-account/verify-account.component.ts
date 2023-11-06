@@ -4,6 +4,7 @@ import { AuthService } from '../extensions/auth.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { Router } from '@angular/router';
 import { fadeAnimation } from 'src/app/animations/animations';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Component({
   selector: 'app-verify-account',
@@ -18,7 +19,7 @@ export class VerifyAccountComponent {
 
   constructor(
     private _authService: AuthService,
-    private _message: NzMessageService,
+    private _message: NzNotificationService,
     private _router: Router
   ) {
     this.email = this._authService.getTempLecturerData()?.email;
@@ -32,7 +33,7 @@ export class VerifyAccountComponent {
       .subscribe(
         (res) => {
           this.isLoading = false;
-          this._message.success("You've successfully registered!");
+          this._message.success("You've successfully registered!", 'Success!');
 
           setTimeout(() => {
             this._router.navigate(['/auth/Login']);
@@ -40,7 +41,10 @@ export class VerifyAccountComponent {
         },
         (err) => {
           this.isLoading = false;
-          this._message.error('Verification failed. Please try again.');
+          this._message.error(
+            'Verification failed. Please try again.',
+            'Oops!'
+          );
         }
       );
   }

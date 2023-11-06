@@ -5,6 +5,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { Router } from '@angular/router';
 import { AuthService } from '../extensions/auth.service';
 import { ILecturerRegister } from '../extensions/lecturer-model';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Component({
   selector: 'app-additional-companies-step',
@@ -27,7 +28,7 @@ export class AdditionalCompaniesStepComponent {
   @Output() nextStep = new EventEmitter<void>();
   constructor(
     private _authService: AuthService,
-    private _message: NzMessageService
+    private _message: NzNotificationService
   ) {
     this.lecturer =
       this._authService.getTempLecturerData() as ILecturerRegister;
@@ -60,7 +61,7 @@ export class AdditionalCompaniesStepComponent {
       },
       error: (err) => {
         console.log(err);
-        this._message.error(err.error);
+        this._message.error(`Login failed: ${err.error}`, '');
       },
       complete: () => {
         console.log('complete');

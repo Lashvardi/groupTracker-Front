@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { ServiceUrlBuilder } from 'src/ServiceUrlBuilder';
 import { ILecturerLogin, ILecturerRegister, IToken } from './lecturer-model';
+import jwtDecode from 'jwt-decode';
 @Injectable({
   providedIn: 'root',
 })
@@ -78,5 +79,14 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     return !!this.getToken();
+  }
+
+  getLecturerName(): string {
+    const token = this.getToken();
+    if (token) {
+      const decodedToken = jwtDecode<IToken>(token);
+      return decodedToken.unique_name;
+    }
+    return '';
   }
 }

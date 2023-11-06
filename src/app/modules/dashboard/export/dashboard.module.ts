@@ -17,6 +17,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CalendarComponent } from '../calendar/calendar.component';
 import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
+import { InitialsAvatarComponent } from 'src/app/shared/initials-avatar/initials-avatar.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -36,6 +37,6 @@ import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
     }),
     NzGridModule,
   ],
-  declarations: [HomeComponent, CalendarComponent, NavbarComponent],
+  declarations: [HomeComponent, CalendarComponent, NavbarComponent, InitialsAvatarComponent],
 })
 export class DashboardModule {}

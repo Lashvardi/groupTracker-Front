@@ -19,8 +19,14 @@
   </div>
 
 
-  <div class="nav-text" class="right-side">
+  <div *ngIf="!_autService.isLoggedIn()" class="nav-text" class="right-side">
     <a class="nav-text" routerLink="auth/Login">Sign In</a>
     <a class="nav-text get-started" routerLink="auth/Register">Get Started</a>
   </div>
+
+  <div *ngIf="_autService.isLoggedIn()" class="authorised-view">
+    <app-initials-avatar [fullName]="_autService.getLecturerName()"></app-initials-avatar>
+  </div>
+
+
 </div>

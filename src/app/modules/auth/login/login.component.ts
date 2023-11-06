@@ -5,12 +5,14 @@ import { PlaceholderDictionary } from 'src/app/models/PlaceholderDictionary';
 import { AuthService } from '../extensions/auth.service';
 import { ILecturerLogin } from '../extensions/lecturer-model';
 import { fadeAnimation } from 'src/app/animations/animations';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  animations: [fadeAnimation],})
+  animations: [fadeAnimation],
+})
 export class LoginComponent {
   lecturer: ILecturerLogin = {
     email: '',
@@ -26,7 +28,7 @@ export class LoginComponent {
 
   constructor(
     private _authService: AuthService,
-    private _message: NzMessageService,
+    private _message: NzNotificationService,
     private _router: Router
   ) {}
   Login() {
@@ -56,7 +58,7 @@ export class LoginComponent {
           }
         }
 
-        this._message.error(`Login failed: ${errorMessage}`);
+        this._message.error(`Login failed: ${errorMessage}`, 'Oops!');
         console.log(err);
       },
       complete: () => {},
