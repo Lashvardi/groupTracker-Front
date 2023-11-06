@@ -1,7 +1,7 @@
-<div class="container">
+<div @fadeAnimation class="container">
   <div class="form-container">
     <form #loginForm="ngForm">
-      <h1>Login</h1>
+      <h1 class="none"><a class="none" routerLink="/"><i class="fa-solid fa-chevron-left fa-2xs"></i> Home</a></h1>
 
       <div class="input-container">
         <input type="email" id="loginEmail" [(ngModel)]="lecturer.email" name="email" #emailCtrl="ngModel"
@@ -12,9 +12,9 @@
       </div>
 
       <div class="input-container">
-        <input type="password" id="loginPassword" [(ngModel)]="lecturer.password" name="password" #passwordCtrl="ngModel"
-          (focus)="onFocus($event)" (blur)="onBlur($event)" [attr.placeholder]="placeholder['password']" required
-          customPassword />
+        <input type="password" id="loginPassword" [(ngModel)]="lecturer.password" name="password"
+          #passwordCtrl="ngModel" (focus)="onFocus($event)" (blur)="onBlur($event)"
+          [attr.placeholder]="placeholder['password']" required customPassword />
         <label for="loginPassword">Password</label>
         <span *ngIf="passwordCtrl.invalid && passwordCtrl.touched">Invalid Password</span>
       </div>

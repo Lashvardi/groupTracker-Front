@@ -11,7 +11,6 @@ import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './shared/navbar/navbar.component';
 
 // NgZorro modules
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
@@ -23,7 +22,7 @@ import { GroupManagerRoutingModule } from './modules/group-manager/export/group-
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

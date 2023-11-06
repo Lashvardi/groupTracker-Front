@@ -9,13 +9,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/auth/export/auth.module').then((m) => m.AuthModule),
   },
+
   {
     path: '',
     loadChildren: () =>
       import('./modules/dashboard/export/dashboard.module').then(
         (m) => m.DashboardModule
       ),
-    canActivate: [NoAuthGuard],
   },
   {
     path: '',

@@ -16,6 +16,7 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CalendarComponent } from '../calendar/calendar.component';
+import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -35,6 +36,6 @@ import { CalendarComponent } from '../calendar/calendar.component';
     }),
     NzGridModule,
   ],
-  declarations: [HomeComponent, CalendarComponent],
+  declarations: [HomeComponent, CalendarComponent, NavbarComponent],
 })
 export class DashboardModule {}

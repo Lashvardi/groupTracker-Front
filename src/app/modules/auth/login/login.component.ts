@@ -4,12 +4,13 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { PlaceholderDictionary } from 'src/app/models/PlaceholderDictionary';
 import { AuthService } from '../extensions/auth.service';
 import { ILecturerLogin } from '../extensions/lecturer-model';
+import { fadeAnimation } from 'src/app/animations/animations';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-})
+  animations: [fadeAnimation],})
 export class LoginComponent {
   lecturer: ILecturerLogin = {
     email: '',

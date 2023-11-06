@@ -149,3 +149,13 @@
 ::ng-deep .valid-border:focus {
   border-color: green !important;
 }
+
+
+.none{
+  text-decoration: none;
+  color: #333;
+  transition: 200ms;
+  &:hover{
+    color: #000ee0;
+  }
+}

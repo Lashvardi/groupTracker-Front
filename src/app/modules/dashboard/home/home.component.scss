@@ -1,48 +1,4 @@
-.navbar{
-  display: flex;
-  padding: 0 20px;
-  align-items: center;
-  justify-content: space-between;
-  height: 60px;
-  border-bottom: #d1d1d1 1px solid;
-  .logo-side{
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-    .logo-text{
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-left: 10px;
-    }
-  }
-
-  .middle{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 25%;
-  }
-
-
-  .nav-text{
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-left: 10px;
-    color: #000;
-  }
-
-  .get-started{
-    background-color: #dbf301;
-    color: #000;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-  }
-
-}
 
 
 
@@ -53,9 +9,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .circle-container {
+  z-index: -1;
   position: relative;
 }
 
@@ -129,7 +87,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 
@@ -140,6 +97,7 @@
   margin-bottom: 20px;
   width: 900px;
   letter-spacing: 0.05em;
+  justify-content: center;
 }
 
 .shorter-text {
@@ -202,9 +160,43 @@
   }
 }
 
+@mixin shapestyles (){
+  width: 100px;
+  height: 100px;
+  background-color: #dbf301;
+  position: absolute;
+  border: #000 2px solid;
+}
+.small-circle{
+  @include shapestyles();
+  border-radius: 50%;
+}
+
+.small-cube{
+  @include shapestyles();
+}
 
 
+.icon:nth-child(1){
+  position: absolute;
+  left: 300px;
+  top: 400px;
+}
 
+.icon:nth-child(2){
+  position: absolute;
+  left: 450px;
+  top: -100px;
+}
 
+.icon:nth-child(3){
+  position: absolute;
+  right: 600px;
+  top: 300px;
+}
 
-
+.icon:nth-child(4){
+  position: absolute;
+  right: 500px;
+  top: -100px;
+}
