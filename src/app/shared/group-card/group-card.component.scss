@@ -1,0 +1,211 @@
+.chip-container{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 120px;
+  width: 80%;
+  height: 100%;
+  flex-wrap: wrap;
+}
+
+.initials-container{
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.element {
+  display: inline-flex;
+  align-items: flex-start;
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #dedede;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.element .color-coded {
+  position: relative;
+  align-self: stretch;
+  width: 144px;
+  background-color: #dedede;
+}
+
+.element .frame {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  position: absolute;
+  top: 24px;
+  left: 22px;
+}
+
+.element .text-wrapper {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Source Code Pro-Regular", Helvetica;
+  font-weight: 400;
+  color: #666666;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.element .div {
+  position: relative;
+  width: fit-content;
+  font-family: "Source Code Pro-Medium", Helvetica;
+  font-weight: 500;
+  color: #181818;
+  font-size: 18px;
+  letter-spacing: 0.72px;
+  line-height: normal;
+}
+
+.element .text-wrapper-2 {
+  position: absolute;
+  width: 101px;
+  height: 15px;
+  top: 161px;
+  left: 22px;
+  font-family: "Source Code Pro-Regular", Helvetica;
+  font-weight: 400;
+  color: #3c3c43;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.element .frame-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 24px;
+  padding: 24px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.element .frame-2 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 24px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.element .frame-3 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.element .frame-4 {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 185px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.element .frame-5 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.element .text-wrapper-3 {
+  position: relative;
+  width: 102px;
+  margin-top: -1px;
+  font-family: "Source Code Pro-Regular", Helvetica;
+  font-weight: 400;
+  color: #666666;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.element .text-wrapper-4 {
+  position: relative;
+  width: 126px;
+  font-family: "Source Code Pro-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.element .progress-bar {
+  display: flex;
+  flex-direction: column;
+  width: 97px;
+  align-items: flex-start;
+  gap: 2px;
+  position: relative;
+}
+
+.element .bar {
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  height: 6px;
+  background-color: #dededecc;
+}
+
+.element .progress-color {
+  width: 75px;
+  height: 6px;
+  background-color: #3c3c43;
+  transform: rotate(180deg);
+}
+
+.element .number-indication {
+  position: relative;
+  width: fit-content;
+  font-weight: 400;
+  color: #3c3c43;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.element .p {
+  position: relative;
+  width: 320px;
+  font-weight: 400;
+  color: #3c3c43;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+ .tag-or-button {
+  position: relative;
+  margin-top: -1px;
+  font-weight: 400;
+  color: #ffffff;
+  background-color: #3c3c43;
+  padding: 8px 12px;
+  border-radius: 100px;
+  border: none;
+
+
+  font-size: 12px;
+  transition: 200ms;
+  &:hover{
+    background-color: #000;
+  }
+}

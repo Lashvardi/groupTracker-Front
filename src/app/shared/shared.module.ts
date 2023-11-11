@@ -4,10 +4,16 @@ import { InitialsAvatarComponent } from './initials-avatar/initials-avatar.compo
 import { NavbarComponent } from './navbar/navbar.component';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { ProfileRoutingModule } from '../modules/profile/export/profile-routing.module';
+import { GroupCardComponent } from './group-card/group-card.component';
 
 @NgModule({
-  declarations: [InitialsAvatarComponent, NavbarComponent],
+  declarations: [
+    InitialsAvatarComponent,
+    NavbarComponent,
+    GroupCardComponent,
+    GroupCardComponent,
+  ],
   imports: [CommonModule, NzModalModule, ProfileRoutingModule],
-  exports: [InitialsAvatarComponent, NavbarComponent],
+  exports: [InitialsAvatarComponent, NavbarComponent, GroupCardComponent],
 })
 export class SharedModule {}

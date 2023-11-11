@@ -18,10 +18,12 @@ export class NoAuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    if (!this._authService.isLoggedIn()) {
-      this.router.navigate(['/auth/Login']);
+    if (!this._authService.isTokenSet()) {
+      return true;
+    } else {
+      // User is logged in, redirect to home page and prevent access
+      this.router.navigate(['/']);
       return false;
     }
-    return true;
   }
 }
