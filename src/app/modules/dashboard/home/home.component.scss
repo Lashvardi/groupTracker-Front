@@ -15,19 +15,19 @@
 .circle-container {
   z-index: -1;
   position: relative;
+
 }
 
 .dashed-circle {
   border-radius: 50%;
   position: absolute;
   cursor: pointer;
-  background-image:
-    radial-gradient(circle at 50% 0, transparent 94%, #000 95%, transparent 96%),
-    radial-gradient(circle at 0 50%, transparent 94%, #000 95%, transparent 96%),
-    radial-gradient(circle at 50% 100%, transparent 94%, #000 95%, transparent 96%),
-    radial-gradient(circle at 100% 50%, transparent 94%, #000 95%, transparent 96%);
-  background-size: 10px 10px; /* Adjust this to control the space between dashes */
   background-position: center;
+  background-color: #ffffff;
+  opacity: 0.4;
+  background-image:  radial-gradient(#7d7d8d 0.75px, transparent 0.75px), radial-gradient(#7d7d8d 0.75px, #ffffff 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0,15px 15px;
   background-repeat: repeat;
 }
 

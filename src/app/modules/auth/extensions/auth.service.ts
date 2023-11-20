@@ -101,4 +101,12 @@ export class AuthService {
     }
     return '';
   }
+  getLecturerId(): string {
+    const token = this.getToken();
+    if (token) {
+      const decodedToken = jwtDecode<IToken>(token);
+      return decodedToken.nameid;
+    }
+    return 'No ID';
+  }
 }

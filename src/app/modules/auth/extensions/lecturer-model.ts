@@ -16,4 +16,5 @@ export interface IToken extends ILecturerLogin {
   token: string;
   unique_name: string;
   email: string;
+  nameid: string;
 }

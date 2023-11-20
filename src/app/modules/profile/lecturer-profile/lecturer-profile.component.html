@@ -1,7 +1,10 @@
 <div class="wrapper">
   <div class="background-banner">
     <div class="initials-container">
-      <app-initials-avatar [size]="'big'" [fullName]="_autService.getLecturerName()"></app-initials-avatar>
+      <app-initials-avatar *ngIf="!_profilePictureFileName" [size]="'big'"
+        [fullName]="_authService.getLecturerName()"></app-initials-avatar>
+
+      <img (click)="callUploadModal()" class="profile-picture" [src]="_profilePicture" alt="">
     </div>
   </div>
   <div class="chip-container">

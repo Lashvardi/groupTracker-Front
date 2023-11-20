@@ -35,4 +35,5 @@ export class ServiceUrlBuilder {
 
     return `${baseUrl}?lecturerId=${encodedLecturerId}`;
   }
+  
 }

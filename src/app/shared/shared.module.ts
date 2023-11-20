@@ -5,6 +5,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { ProfileRoutingModule } from '../modules/profile/export/profile-routing.module';
 import { GroupCardComponent } from './group-card/group-card.component';
+import { UploadProfilePictureComponent } from './modals/upload-profile-picture.component';
 
 @NgModule({
   declarations: [
@@ -12,8 +13,9 @@ import { GroupCardComponent } from './group-card/group-card.component';
     NavbarComponent,
     GroupCardComponent,
     GroupCardComponent,
+    UploadProfilePictureComponent,
   ],
   imports: [CommonModule, NzModalModule, ProfileRoutingModule],
-  exports: [InitialsAvatarComponent, NavbarComponent, GroupCardComponent],
+  exports: [InitialsAvatarComponent, NavbarComponent, GroupCardComponent, UploadProfilePictureComponent],
 })
 export class SharedModule {}

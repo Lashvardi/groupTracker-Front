@@ -25,6 +25,7 @@ import { SharedModule } from './shared/shared.module';
 import { ProfileModule } from './modules/profile/export/profile.module';
 import { ProfileRoutingModule } from './modules/profile/export/profile-routing.module';
 import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 registerLocaleData(en);
 
 @NgModule({
@@ -46,6 +47,7 @@ registerLocaleData(en);
     ProfileRoutingModule,
     ProfileModule,
     NzMessageModule,
+    NzModalModule,
   ],
   exports: [],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
