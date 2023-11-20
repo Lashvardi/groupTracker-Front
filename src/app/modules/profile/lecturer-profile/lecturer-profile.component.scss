@@ -6,7 +6,9 @@
   align-items: center;
   justify-content: center;
   position: relative;
-
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
   &:hover{
     .hidden{
       opacity: 1;
@@ -37,10 +39,11 @@
 
 .initials-container{
   position: absolute;
-  top: 100%;
+  top: 20%;
   left: 50%;
   z-index: 100;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -0%);
+
 }
 
 .profile-picture{

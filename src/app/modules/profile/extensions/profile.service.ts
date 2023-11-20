@@ -16,6 +16,13 @@ export class ProfileService {
     );
   }
 
+  getBannerPicture(lecturerId: string) {
+    return this._http.get(
+      ServiceUrlBuilder.buildRootUrl(`Lecturer/banner-picture/${lecturerId}`),
+      { responseType: 'text' } // Expecting text response
+    );
+  }
+
   get profilePicture() {
     return this._profilePicture;
   }

@@ -4,6 +4,7 @@ import { ProfileService } from '../extensions/profile.service';
 import { Observable } from 'rxjs';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { UploadProfilePictureComponent } from 'src/app/shared/modals/upload-profile-picture.component';
+import { UploadBannerPictureComponent } from 'src/app/shared/modals/upload-banner-picture.component';
 
 @Component({
   selector: 'app-lecturer-profile',
@@ -12,7 +13,10 @@ import { UploadProfilePictureComponent } from 'src/app/shared/modals/upload-prof
 })
 export class LecturerProfileComponent {
   public _profilePictureFileName: string = '';
-  public _profilePicture: string = `https://localhost:7273/Images/${this._profilePictureFileName}}`;
+  public _profilePicture: string = ``;
+
+  public _bannerPictureFileName: string = '';
+  public _bannerPicture: string = ``;
   constructor(
     public _authService: AuthService,
     public profileService: ProfileService,
@@ -26,9 +30,12 @@ export class LecturerProfileComponent {
         this._profilePicture = `https://localhost:7273/Images/${this._profilePictureFileName}`;
       });
 
-    setTimeout(() => {
-      console.log(this._profilePicture);
-    }, 300);
+    this.profileService
+      .getBannerPicture(_authService.getLecturerId())
+      .subscribe((fileName: string) => {
+        this._bannerPictureFileName = fileName;
+        this._bannerPicture = `https://localhost:7273/Images/${this._bannerPictureFileName}`;
+      });
   }
 
   callUploadModal() {
@@ -42,7 +49,7 @@ export class LecturerProfileComponent {
   callBannerEditModal() {
     this._modal.create({
       nzTitle: 'Upload Profile Picture',
-      nzContent: UploadProfilePictureComponent,
+      nzContent: UploadBannerPictureComponent,
       nzFooter: null,
     });
   }

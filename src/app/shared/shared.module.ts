@@ -12,6 +12,7 @@ import { AuthService } from '../modules/auth/extensions/auth.service';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { UploadBannerPictureComponent } from './modals/upload-banner-picture.component';
 @NgModule({
   declarations: [
     InitialsAvatarComponent,
@@ -19,7 +20,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     GroupCardComponent,
     GroupCardComponent,
     UploadProfilePictureComponent,
-
+    UploadBannerPictureComponent,
   ],
   imports: [
     CommonModule,
@@ -35,6 +36,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     NavbarComponent,
     GroupCardComponent,
     UploadProfilePictureComponent,
+    UploadBannerPictureComponent,
   ],
 })
 export class SharedModule {}

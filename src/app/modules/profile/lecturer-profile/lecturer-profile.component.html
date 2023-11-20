@@ -1,16 +1,16 @@
 <div class="wrapper">
-  <div (click)="callBannerEditModal()" class="background-banner">
+  <div (click)="callBannerEditModal()" class="background-banner"
+    [ngStyle]="{'background-image': _bannerPicture ? 'url(' + _bannerPicture + ')' : 'none'}">
     <span class="hidden">Click To Edit<span nz-icon nzType="edit" nzTheme="outline"></span></span>
-    <div class="initials-container">
-      <app-initials-avatar *ngIf="!_profilePictureFileName" [size]="'big'"
-        [fullName]="_authService.getLecturerName()"></app-initials-avatar>
+  </div>
 
-      <img *ngIf="_profilePicture" (click)="callUploadModal()" class="profile-picture" [src]="_profilePicture" alt="">
-    </div>
+  <div class="initials-container">
+    <app-initials-avatar *ngIf="!_profilePictureFileName" [size]="'big'"
+      [fullName]="_authService.getLecturerName()"></app-initials-avatar>
+
+    <img *ngIf="_profilePicture" (click)="callUploadModal()" class="profile-picture" [src]="_profilePicture" alt="" />
   </div>
   <div class="chip-container">
     <app-group-card></app-group-card>
-
   </div>
-
 </div>
