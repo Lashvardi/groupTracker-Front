@@ -38,4 +38,12 @@ export class LecturerProfileComponent {
       nzFooter: null,
     });
   }
+
+  callBannerEditModal() {
+    this._modal.create({
+      nzTitle: 'Upload Profile Picture',
+      nzContent: UploadProfilePictureComponent,
+      nzFooter: null,
+    });
+  }
 }

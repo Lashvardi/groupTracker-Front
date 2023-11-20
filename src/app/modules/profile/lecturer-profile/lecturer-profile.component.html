@@ -1,10 +1,11 @@
 <div class="wrapper">
-  <div class="background-banner">
+  <div (click)="callBannerEditModal()" class="background-banner">
+    <span class="hidden">Click To Edit<span nz-icon nzType="edit" nzTheme="outline"></span></span>
     <div class="initials-container">
       <app-initials-avatar *ngIf="!_profilePictureFileName" [size]="'big'"
         [fullName]="_authService.getLecturerName()"></app-initials-avatar>
 
-      <img (click)="callUploadModal()" class="profile-picture" [src]="_profilePicture" alt="">
+      <img *ngIf="_profilePicture" (click)="callUploadModal()" class="profile-picture" [src]="_profilePicture" alt="">
     </div>
   </div>
   <div class="chip-container">

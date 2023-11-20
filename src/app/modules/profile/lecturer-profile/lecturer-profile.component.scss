@@ -6,6 +6,14 @@
   align-items: center;
   justify-content: center;
   position: relative;
+
+  &:hover{
+    .hidden{
+      opacity: 1;
+    }
+
+    background-color: #617c64;
+  }
 }
 
 .wrapper{
@@ -31,12 +39,13 @@
   position: absolute;
   top: 100%;
   left: 50%;
+  z-index: 100;
   transform: translate(-50%, -50%);
 }
 
 .profile-picture{
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   background-color: #007bff;
   color: white;
@@ -48,8 +57,17 @@
   font-size: 32px;
   border: #000 5px solid;
   transition: 200ms;
-
   &:hover{
-      background-color: #0586cb;
+    filter: contrast(0.8);
     }
+}
+
+
+.hidden{
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: 200ms;
+
+  opacity: 0;
 }
