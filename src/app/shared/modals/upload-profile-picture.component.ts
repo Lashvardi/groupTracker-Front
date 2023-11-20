@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { NzUploadFile } from 'ng-zorro-antd/upload';
@@ -15,13 +16,17 @@ import { AuthService } from 'src/app/modules/auth/extensions/auth.service';
     >
       <button nz-button><i nz-icon nzType="upload"></i> Click to Upload</button>
     </nz-upload>
+    <button (click)="handleDelete()" nz-button nzType="primary" nzDanger="">
+      Delete Image
+    </button>
   `,
   styles: [],
 })
 export class UploadProfilePictureComponent {
   constructor(
     private _authService: AuthService,
-    private _notification: NzNotificationService
+    private _notification: NzNotificationService,
+    private _http: HttpClient
   ) {}
   uploadUrl: string = `https://localhost:7273/Lecturer/upload-profile-picture/${this._authService.getLecturerId()}`;
   beforeUpload = (
@@ -49,7 +54,9 @@ export class UploadProfilePictureComponent {
         'Your profile picture has been uploaded successfully!'
       );
 
-      setTimeout(() => {}, 1000);
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
       console.log(info.file.response);
     } else if (info.file.status === 'error') {
       this._notification.error(
@@ -58,5 +65,21 @@ export class UploadProfilePictureComponent {
       );
       console.log(info.file.response);
     }
+  }
+
+  handleDelete() {
+    this._http
+      .delete(
+        `https://localhost:7273/Lecturer/delete-profile-picture/${this._authService.getLecturerId()}`
+      )
+      .subscribe((res: any) => {
+        this._notification.success(
+          'Profile Picture Deleted',
+          'Your profile picture has been deleted successfully!'
+        );
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+      });
   }
 }

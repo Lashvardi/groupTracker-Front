@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { AuthService } from 'src/app/modules/auth/extensions/auth.service';
+import { UploadProfilePictureComponent } from '../modals/upload-profile-picture.component';
 
 @Component({
   selector: 'app-initials-avatar',
@@ -48,7 +49,7 @@ export class InitialsAvatarComponent {
   callDetailsModal() {
     this._modal.create({
       nzTitle: 'User Details',
-      nzContent: `${this._fullName}`,
+      nzContent: UploadProfilePictureComponent,
       nzFooter: null,
     });
   }

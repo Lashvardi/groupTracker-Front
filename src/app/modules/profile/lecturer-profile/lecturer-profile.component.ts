@@ -36,6 +36,24 @@ export class LecturerProfileComponent {
         this._bannerPictureFileName = fileName;
         this._bannerPicture = `https://localhost:7273/Images/${this._bannerPictureFileName}`;
       });
+
+    this.profileService
+      .hasFilledOutSocials(_authService.getLecturerId())
+      .subscribe((hasFilledOutSocials) => {
+        if (!hasFilledOutSocials) {
+          this._modal.create({
+            nzTitle: 'Socials',
+            nzContent: "You haven't filled out your socials yet!",
+            nzFooter: null,
+          });
+        } else {
+          this._modal.create({
+            nzTitle: 'Socials',
+            nzContent: 'You have filled out your socials!',
+            nzFooter: null,
+          });
+        }
+      });
   }
 
   callUploadModal() {

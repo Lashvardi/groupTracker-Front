@@ -27,5 +27,11 @@ export class ProfileService {
     return this._profilePicture;
   }
 
-  //unsubscribe
+  hasFilledOutSocials(lecturerId: string) {
+    return this._http.get(
+      ServiceUrlBuilder.buildRootUrl(
+        `Lecturer/has-filled-out-socials/${lecturerId}`
+      ),
+    );
+  }
 }

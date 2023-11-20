@@ -8,7 +8,8 @@
     <app-initials-avatar *ngIf="!_profilePictureFileName" [size]="'big'"
       [fullName]="_authService.getLecturerName()"></app-initials-avatar>
 
-    <img *ngIf="_profilePicture" (click)="callUploadModal()" class="profile-picture" [src]="_profilePicture" alt="" />
+    <img *ngIf="_profilePictureFileName" (click)="callUploadModal()" class="profile-picture" [src]="_profilePicture"
+      alt="" />
   </div>
   <div class="chip-container">
     <app-group-card></app-group-card>
