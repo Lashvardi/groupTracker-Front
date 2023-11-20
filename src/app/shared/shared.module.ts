@@ -13,6 +13,10 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { UploadBannerPictureComponent } from './modals/upload-banner-picture.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { FillSocialsComponent } from './modals/fill-socials.component';
+
 @NgModule({
   declarations: [
     InitialsAvatarComponent,
@@ -21,6 +25,7 @@ import { UploadBannerPictureComponent } from './modals/upload-banner-picture.com
     GroupCardComponent,
     UploadProfilePictureComponent,
     UploadBannerPictureComponent,
+    FillSocialsComponent,
   ],
   imports: [
     CommonModule,
@@ -30,6 +35,9 @@ import { UploadBannerPictureComponent } from './modals/upload-banner-picture.com
     NzButtonModule,
     NzNotificationModule,
     NzIconModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NzFormModule,
   ],
   exports: [
     InitialsAvatarComponent,

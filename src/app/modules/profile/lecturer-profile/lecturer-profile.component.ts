@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { UploadProfilePictureComponent } from 'src/app/shared/modals/upload-profile-picture.component';
 import { UploadBannerPictureComponent } from 'src/app/shared/modals/upload-banner-picture.component';
+import { FillSocialsComponent } from 'src/app/shared/modals/fill-socials.component';
 
 @Component({
   selector: 'app-lecturer-profile',
@@ -43,7 +44,7 @@ export class LecturerProfileComponent {
         if (!hasFilledOutSocials) {
           this._modal.create({
             nzTitle: 'Socials',
-            nzContent: "You haven't filled out your socials yet!",
+            nzContent: FillSocialsComponent,
             nzFooter: null,
           });
         } else {
@@ -66,7 +67,7 @@ export class LecturerProfileComponent {
 
   callBannerEditModal() {
     this._modal.create({
-      nzTitle: 'Upload Profile Picture',
+      nzTitle: 'Upload Banner Picture',
       nzContent: UploadBannerPictureComponent,
       nzFooter: null,
     });
