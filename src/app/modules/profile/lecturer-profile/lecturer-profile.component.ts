@@ -6,6 +6,7 @@ import { NzModalService } from 'ng-zorro-antd/modal';
 import { UploadProfilePictureComponent } from 'src/app/shared/modals/upload-profile-picture.component';
 import { UploadBannerPictureComponent } from 'src/app/shared/modals/upload-banner-picture.component';
 import { FillSocialsComponent } from 'src/app/shared/modals/fill-socials.component';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-lecturer-profile',
@@ -21,7 +22,8 @@ export class LecturerProfileComponent {
   constructor(
     public _authService: AuthService,
     public profileService: ProfileService,
-    private _modal: NzModalService
+    private _modal: NzModalService,
+    private _message: NzMessageService
   ) {
     // In your component
     this.profileService
@@ -48,13 +50,18 @@ export class LecturerProfileComponent {
             nzFooter: null,
           });
         } else {
-          this._modal.create({
-            nzTitle: 'Socials',
-            nzContent: FillSocialsComponent,
-            nzFooter: null,
-          });
+          // this was for testing purposes
+          // this._modal.create({
+          //   nzTitle: 'Socials',
+          //   nzContent: 'You have filled out your socials!',
+          //   nzFooter: null,
+          // });
+
+          this._message.info('You have filled out your socials!');
         }
       });
+
+    this._message.success('Profile Loaded Successfully!');
   }
 
   callUploadModal() {

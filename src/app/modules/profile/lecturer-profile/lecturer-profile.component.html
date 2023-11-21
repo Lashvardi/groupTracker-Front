@@ -1,15 +1,58 @@
 <div class="wrapper">
-  <div (click)="callBannerEditModal()" class="background-banner"
-    [ngStyle]="{'background-image': _bannerPicture ? 'url(' + _bannerPicture + ')' : 'none'}">
-    <span class="hidden">Click To Edit<span nz-icon nzType="edit" nzTheme="outline"></span></span>
+  <div class="top-side">
+    <div (click)="callBannerEditModal()" class="background-banner"
+      [ngStyle]="{'background-image': _bannerPicture ? 'url(' + _bannerPicture + ')' : 'none'}">
+      <span class="hidden">Click To Edit<span nz-icon nzType="edit" nzTheme="outline"></span></span>
+    </div>
+
+    <div class="initials-container">
+      <app-initials-avatar *ngIf="!_profilePictureFileName" [size]="'big'"
+        [fullName]="_authService.getLecturerName()"></app-initials-avatar>
+
+      <img *ngIf="_profilePictureFileName" (click)="callUploadModal()" class="profile-picture" [src]="_profilePicture"
+        alt="" />
+    </div>
   </div>
 
-  <div class="initials-container">
-    <app-initials-avatar *ngIf="!_profilePictureFileName" [size]="'big'"
-      [fullName]="_authService.getLecturerName()"></app-initials-avatar>
-
-    <img *ngIf="_profilePictureFileName" (click)="callUploadModal()" class="profile-picture" [src]="_profilePicture"
-      alt="" />
+  <div class="socials-container">
+    <div class="inner">
+      <div class="icon">
+        <a href="https://www.facebook.com/">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </div>
+      <div class="icon">
+        <a href="https://www.instagram.com/">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+      <div class="icon">
+        <a href="https://www.linkedin.com/">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+      <div class="icon">
+        <a href="https://www.twitter.com/">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+      <div class="icon">
+        <a href="https://www.youtube.com/">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+      <div class="icon">
+        <a href="https://www.github.com/">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <!-- personal website -->
+      <div class="icon">
+        <a href="https://www.google.com/">
+          <i class="fas fa-globe"></i>
+        </a>
+      </div>
+    </div>
   </div>
   <div class="chip-container">
     <app-group-card></app-group-card>
