@@ -1,9 +1,14 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { ServiceUrlBuilder } from 'src/ServiceUrlBuilder';
+import { AuthService } from 'src/app/modules/auth/extensions/auth.service';
+import { ProfileService } from 'src/app/modules/profile/extensions/profile.service';
 
 @Component({
   selector: 'app-fill-socials',
   template: `
+    <h4>We've detected that you dont have filled out your socials</h4>
     <form
       [formGroup]="socialLinksForm"
       (ngSubmit)="submitForm()"
@@ -65,7 +70,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
               <input
                 nz-input
                 placeholder="Youtube URL"
-                formControlName="youtubeLink"
+                formControlName="youTubeLink"
                 id="youtubeLink"
               />
             </nz-form-control>
@@ -120,28 +125,63 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class FillSocialsComponent {
   socialLinksForm: FormGroup;
-
-  constructor(private fb: FormBuilder) {
+  addSocialLinks(lecturerId: string, socialLinks: any) {
+    return this._http.put(
+      ServiceUrlBuilder.buildRootUrl(`Lecturer/add-socials/${lecturerId}`),
+      socialLinks
+    );
+  }
+  constructor(
+    private fb: FormBuilder,
+    private _http: HttpClient,
+    private _authService: AuthService
+  ) {
     this.socialLinksForm = this.fb.group({
       facebookLink: [''],
       twitterLink: [''],
       instagramLink: [''],
       linkedInLink: [''],
-      youtubeLink: [''],
+      youTubeLink: [''],
       personalWebsiteLink: [''],
     });
 
-    this.socialLinksForm.setValue({
-      facebookLink: 'https://www.facebook.com/your-profile',
-      twitterLink: 'https://www.twitter.com/your-profile',
-      instagramLink: 'https://www.instagram.com/your-profile',
-      linkedInLink: 'https://www.linkedin.com/your-profile',
-      youtubeLink: 'https://www.youtube.com/your-profile',
-      personalWebsiteLink: 'https://www.your-website.com',
-    });
+    // this.socialLinksForm.setValue({
+    //   facebookLink: 'https://www.facebook.com/your-profile',
+    //   twitterLink: 'https://www.twitter.com/your-profile',
+    //   instagramLink: 'https://www.instagram.com/your-profile',
+    //   linkedInLink: 'https://www.linkedin.com/your-profile',
+    //   youtubeLink: 'https://www.youtube.com/your-profile',
+    //   personalWebsiteLink: 'https://www.your-website.com',
+    // });
+
+    // get socials
+    this._http
+      .get(
+        ServiceUrlBuilder.buildRootUrl(
+          `Lecturer/get-socials/${this._authService.getLecturerId()}`
+        )
+      )
+      .subscribe((socials: any) => {
+        console.log(socials);
+        this.socialLinksForm.patchValue({
+          facebookLink: socials.facebookLink,
+          twitterLink: socials.twitterLink,
+          instagramLink: socials.instagramLink,
+          linkedInLink: socials.linkedInLink,
+          youTubeLink: socials.youTubeLink,
+          personalWebsiteLink: socials.personalWebsiteLink,
+        });
+      });
   }
 
   submitForm(): void {
-    console.log('Social Links:', this.socialLinksForm.value);
+    console.log(this.socialLinksForm.value);
+
+    this.addSocialLinks(
+      this._authService.getLecturerId(),
+      this.socialLinksForm.value
+    ).subscribe((res) => {
+      console.log(res);
+    });
   }
 }

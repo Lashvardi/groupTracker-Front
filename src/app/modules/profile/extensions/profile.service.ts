@@ -31,7 +31,9 @@ export class ProfileService {
     return this._http.get(
       ServiceUrlBuilder.buildRootUrl(
         `Lecturer/has-filled-out-socials/${lecturerId}`
-      ),
+      )
     );
   }
+
+
 }

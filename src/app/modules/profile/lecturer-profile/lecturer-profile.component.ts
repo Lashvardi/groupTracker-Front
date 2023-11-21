@@ -50,7 +50,7 @@ export class LecturerProfileComponent {
         } else {
           this._modal.create({
             nzTitle: 'Socials',
-            nzContent: 'You have filled out your socials!',
+            nzContent: FillSocialsComponent,
             nzFooter: null,
           });
         }
