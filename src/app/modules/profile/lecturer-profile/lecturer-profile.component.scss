@@ -27,7 +27,6 @@
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  justify-content: space-between;
 }
 
 .socials-container{
@@ -55,7 +54,6 @@
   gap: 10px;
   margin-top: 120px;
   width: 80%;
-  height: 100%;
   flex-wrap: wrap;
 }
 
@@ -109,4 +107,20 @@
 
 .icon{
   user-select: none;
+}
+
+.add-chip{
+  height: 190px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: dashed 2px #dedede;
+  text-align: center;
+  font-size: 24px;
+  border-radius: 8px;
+  transition: 200ms;
+  &:hover{
+    background-color: #dedede;
+  }
 }
