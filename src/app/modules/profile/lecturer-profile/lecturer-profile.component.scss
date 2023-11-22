@@ -102,6 +102,11 @@
   color: #000;
   transition: 200ms;
   &:hover{
-    color: #fff;
+    color: peru;
   }
+}
+
+
+.icon{
+  user-select: none;
 }

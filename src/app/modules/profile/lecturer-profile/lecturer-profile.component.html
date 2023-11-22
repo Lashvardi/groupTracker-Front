@@ -16,43 +16,43 @@
 
   <div class="socials-container">
     <div class="inner">
-      <div class="icon">
-        <a href="https://www.facebook.com/">
+      <div class="icon" (click)="callSocialsEditModal()">
+        <span>Click To Edit<span nz-icon nzType="edit" nzTheme="outline"></span></span>
+      </div>
+      <div *ngIf="_socialLinks.facebookLink" class="icon">
+        <a target="_blank" href="{{_socialLinks.facebookLink}}">
           <i class="fab fa-facebook-f"></i>
         </a>
       </div>
-      <div class="icon">
-        <a href="https://www.instagram.com/">
+      <div *ngIf="_socialLinks.instagramLink" class="icon">
+        <a target="_blank" href="{{_socialLinks.instagramLink}}">
           <i class="fab fa-instagram"></i>
         </a>
       </div>
-      <div class="icon">
-        <a href="https://www.linkedin.com/">
+      <div *ngIf="_socialLinks.linkedInLink" class="icon">
+        <a target="_blank" href="{{_socialLinks.linkedInLink}}">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </div>
-      <div class="icon">
-        <a href="https://www.twitter.com/">
+      <div *ngIf="_socialLinks.twitterLink" class="icon">
+        <a target="_blank" href="{{_socialLinks.twitterLink}}">
           <i class="fab fa-twitter"></i>
         </a>
       </div>
-      <div class="icon">
-        <a href="https://www.youtube.com/">
+      <div *ngIf="_socialLinks.youTubeLink" class="icon">
+        <a target="_blank" href="{{_socialLinks.youTubeLink}}">
           <i class="fab fa-youtube"></i>
         </a>
       </div>
-      <div class="icon">
-        <a href="https://www.github.com/">
-          <i class="fab fa-github"></i>
-        </a>
-      </div>
       <!-- personal website -->
-      <div class="icon">
-        <a href="https://www.google.com/">
+      <div *ngIf="_socialLinks.personalWebsiteLink" class="icon">
+        <a target="_blank" href="{{_socialLinks.personalWebsiteLink}}">
           <i class="fas fa-globe"></i>
         </a>
       </div>
     </div>
+    <!-- edit icon -->
+
   </div>
   <div class="chip-container">
     <app-group-card></app-group-card>

@@ -7,6 +7,8 @@ import { UploadProfilePictureComponent } from 'src/app/shared/modals/upload-prof
 import { UploadBannerPictureComponent } from 'src/app/shared/modals/upload-banner-picture.component';
 import { FillSocialsComponent } from 'src/app/shared/modals/fill-socials.component';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { SharedService } from 'src/app/shared/shared.service';
+import { SocialsLinks } from './socials.model';
 
 @Component({
   selector: 'app-lecturer-profile',
@@ -16,6 +18,14 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 export class LecturerProfileComponent {
   public _profilePictureFileName: string = '';
   public _profilePicture: string = ``;
+  public _socialLinks: SocialsLinks = {
+    facebookLink: '',
+    twitterLink: '',
+    instagramLink: '',
+    linkedInLink: '',
+    youTubeLink: '',
+    personalWebsiteLink: '',
+  };
 
   public _bannerPictureFileName: string = '';
   public _bannerPicture: string = ``;
@@ -62,6 +72,13 @@ export class LecturerProfileComponent {
       });
 
     this._message.success('Profile Loaded Successfully!');
+
+    this.profileService
+      .getSocialLinks(this._authService.getLecturerId())
+      .subscribe((socialLinks: any) => {
+        this._socialLinks = socialLinks;
+        console.log(this._socialLinks);
+      });
   }
 
   callUploadModal() {
@@ -76,6 +93,14 @@ export class LecturerProfileComponent {
     this._modal.create({
       nzTitle: 'Upload Banner Picture',
       nzContent: UploadBannerPictureComponent,
+      nzFooter: null,
+    });
+  }
+
+  callSocialsEditModal() {
+    this._modal.create({
+      nzTitle: 'Socials',
+      nzContent: FillSocialsComponent,
       nzFooter: null,
     });
   }

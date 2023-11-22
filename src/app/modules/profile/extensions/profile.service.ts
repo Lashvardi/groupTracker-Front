@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ServiceUrlBuilder } from 'src/ServiceUrlBuilder';
+import { AuthService } from '../../auth/extensions/auth.service';
 @Injectable({
   providedIn: 'root',
 })
 export class ProfileService {
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient, private _authService: AuthService) {}
   private _profilePictureFileName: string = '';
   private _profilePicture: string = `https://localhost:7273/${this._profilePictureFileName}}`;
 
@@ -35,5 +36,11 @@ export class ProfileService {
     );
   }
 
-
+  getSocialLinks(lecturerId: string) {
+    return this._http.get(
+      ServiceUrlBuilder.buildRootUrl(
+        `Lecturer/get-socials/${this._authService.getLecturerId()}`
+      )
+    );
+  }
 }
