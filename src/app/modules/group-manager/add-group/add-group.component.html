@@ -1,30 +1,35 @@
 <div class="center-container">
   <div class="inner">
+    <h1>Add Group</h1>
     <form [formGroup]="groupForm" (ngSubmit)="onSubmit()">
       <div>
         <label for="companyName">Company Name:</label>
-        <input type="text" id="companyName" formControlName="companyName" required />
+        <input type="text" id="companyName" placeholder="It Step Academy" formControlName="companyName" required />
       </div>
 
       <div>
         <label for="groupName">Group Name:</label>
-        <input type="text" id="groupName" formControlName="groupName" required />
+        <input type="text" id="groupName" formControlName="groupName" placeholder="JP_WS_19_6" required />
       </div>
 
       <div>
         <label for="grade">Grade:</label>
-        <input type="text" id="grade" formControlName="grade" required />
-      </div>
-
-      <div>
-        <label for="status">Status:</label>
-        <input type="number" id="status" formControlName="status" required />
+        <input type="text" id="grade" formControlName="grade" placeholder="Middle" required />
       </div>
 
       <div>
         <label for="sessionsAmount">Sessions Amount:</label>
-        <input type="number" id="sessionsAmount" formControlName="sessionsAmount" required />
+        <select id="sessionsAmount" formControlName="sessionsAmount" required>
+          <option value="">Select Amount</option>
+          <option value="8">8</option>
+          <option value="16">16</option>
+          <option value="24">24</option>
+          <option value="36">36</option>
+          <option value="44">44</option>
+          <option value="54">54</option>
+        </select>
       </div>
+
 
       <div>
         <label for="startDate">Start Date:</label>
@@ -41,17 +46,16 @@
         <input type="checkbox" id="isOnline" formControlName="isOnline" />
       </div>
 
-      <button type="submit">Submit Group</button>
+      <button nz-button nzType="primary" type="submit">Submit Group</button>
     </form>
 
     <!-- Session Form -->
-    <form [formGroup]="sessionForm" (ngSubmit)="onSubmit()">
+    <!-- <form [formGroup]="sessionForm" (ngSubmit)="onSubmit()">
       <div>
         <label for="days">Days:</label>
         <select formControlName="days" multiple>
           <option value="0">Sunday</option>
           <option value="1">Monday</option>
-          <!-- Add options for each day of the week -->
         </select>
       </div>
 
@@ -71,6 +75,6 @@
       </div>
 
       <button type="submit">Submit Session</button>
-    </form>
+    </form> -->
   </div>
 </div>

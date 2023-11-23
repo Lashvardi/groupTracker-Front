@@ -11,7 +11,6 @@ import { AuthService } from '../../auth/extensions/auth.service';
 })
 export class AddGroupComponent {
   groupForm: FormGroup;
-  sessionForm: FormGroup;
 
   constructor(
     private authService: AuthService,
@@ -28,18 +27,9 @@ export class AddGroupComponent {
       perWeek: new FormControl(0, Validators.required),
       isOnline: new FormControl(true, Validators.required),
     });
-
-    this.sessionForm = new FormGroup({
-      days: new FormControl([], Validators.required),
-      time: new FormControl('', Validators.required),
-      auditorium: new FormControl('', Validators.required),
-      isOnline: new FormControl(true, Validators.required),
-    });
   }
 
   onSubmit() {
     console.log(this.groupForm.value);
-    console.log(this.sessionForm.value);
-    
   }
 }

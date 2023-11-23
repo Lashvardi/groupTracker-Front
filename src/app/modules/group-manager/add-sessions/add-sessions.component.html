@@ -1,0 +1,32 @@
+<div class="center-container">
+  <div class="inner">
+    <h1>Add Sessions</h1>
+    <!-- Session Form -->
+    <form [formGroup]="sessionForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="days">Days:</label>
+        <select formControlName="days" multiple>
+          <option value="0">Sunday</option>
+          <option value="1">Monday</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="time">Time:</label>
+        <input type="time" id="time" formControlName="time" required />
+      </div>
+
+      <div>
+        <label for="auditorium">Auditorium:</label>
+        <input type="text" id="auditorium" formControlName="auditorium" required />
+      </div>
+
+      <div>
+        <label for="isOnlineSession">Is Online:</label>
+        <input type="checkbox" id="isOnlineSession" formControlName="isOnline" />
+      </div>
+
+      <button type="submit">Submit Session</button>
+    </form>
+  </div>
+</div>

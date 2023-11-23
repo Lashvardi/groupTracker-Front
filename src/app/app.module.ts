@@ -26,10 +26,11 @@ import { ProfileModule } from './modules/profile/export/profile.module';
 import { ProfileRoutingModule } from './modules/profile/export/profile-routing.module';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
+import { AddSessionsComponent } from './modules/group-manager/add-sessions/add-sessions.component';
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AddSessionsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
