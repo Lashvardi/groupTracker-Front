@@ -10,6 +10,8 @@ import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { AddGroupComponent } from '../add-group/add-group.component';
+import { GroupManagerRoutingModule } from './group-manager.routing.module';
 @NgModule({
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
     NzButtonModule,
     NzDividerModule,
     NzGridModule,
+    GroupManagerRoutingModule,
   ],
-  declarations: [],
+  declarations: [AddGroupComponent],
 })
 export class GroupManagerModule {}

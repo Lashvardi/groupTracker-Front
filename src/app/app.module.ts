@@ -41,7 +41,6 @@ registerLocaleData(en);
     NzMenuModule,
     NzIconModule,
     NzButtonModule,
-    GroupManagerRoutingModule,
     NzDropDownModule,
     SharedModule,
     ProfileRoutingModule,

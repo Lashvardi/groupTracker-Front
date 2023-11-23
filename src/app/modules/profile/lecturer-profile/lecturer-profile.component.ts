@@ -9,6 +9,7 @@ import { FillSocialsComponent } from 'src/app/shared/modals/fill-socials.compone
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { SharedService } from 'src/app/shared/shared.service';
 import { SocialsLinks } from './socials.model';
+import { UploadGroupComponent } from 'src/app/shared/modals/add-group.component';
 
 @Component({
   selector: 'app-lecturer-profile',
@@ -104,4 +105,6 @@ export class LecturerProfileComponent {
       nzFooter: null,
     });
   }
+
+
 }

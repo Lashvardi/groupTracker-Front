@@ -3,7 +3,7 @@ import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { NoAuthGuard } from 'src/app/guards/no-auth.guard';
 import { AddGroupComponent } from '../add-group/add-group.component';
 
-const routes: Routes = [
+const groupManagerRoutes: Routes = [
   {
     path: 'add-group',
     component: AddGroupComponent,
@@ -11,7 +11,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(groupManagerRoutes)],
   exports: [RouterModule],
 })
 export class GroupManagerRoutingModule {}

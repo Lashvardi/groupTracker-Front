@@ -1,1 +1,76 @@
-<p>add-group works!</p>
+<div class="center-container">
+  <div class="inner">
+    <form [formGroup]="groupForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="companyName">Company Name:</label>
+        <input type="text" id="companyName" formControlName="companyName" required />
+      </div>
+
+      <div>
+        <label for="groupName">Group Name:</label>
+        <input type="text" id="groupName" formControlName="groupName" required />
+      </div>
+
+      <div>
+        <label for="grade">Grade:</label>
+        <input type="text" id="grade" formControlName="grade" required />
+      </div>
+
+      <div>
+        <label for="status">Status:</label>
+        <input type="number" id="status" formControlName="status" required />
+      </div>
+
+      <div>
+        <label for="sessionsAmount">Sessions Amount:</label>
+        <input type="number" id="sessionsAmount" formControlName="sessionsAmount" required />
+      </div>
+
+      <div>
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" formControlName="startDate" required />
+      </div>
+
+      <div>
+        <label for="perWeek">Sessions Per Week:</label>
+        <input type="number" id="perWeek" formControlName="perWeek" required />
+      </div>
+
+      <div>
+        <label for="isOnline">Is Online:</label>
+        <input type="checkbox" id="isOnline" formControlName="isOnline" />
+      </div>
+
+      <button type="submit">Submit Group</button>
+    </form>
+
+    <!-- Session Form -->
+    <form [formGroup]="sessionForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="days">Days:</label>
+        <select formControlName="days" multiple>
+          <option value="0">Sunday</option>
+          <option value="1">Monday</option>
+          <!-- Add options for each day of the week -->
+        </select>
+      </div>
+
+      <div>
+        <label for="time">Time:</label>
+        <input type="time" id="time" formControlName="time" required />
+      </div>
+
+      <div>
+        <label for="auditorium">Auditorium:</label>
+        <input type="text" id="auditorium" formControlName="auditorium" required />
+      </div>
+
+      <div>
+        <label for="isOnlineSession">Is Online:</label>
+        <input type="checkbox" id="isOnlineSession" formControlName="isOnline" />
+      </div>
+
+      <button type="submit">Submit Session</button>
+    </form>
+  </div>
+</div>

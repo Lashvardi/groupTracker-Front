@@ -16,6 +16,7 @@ import { UploadBannerPictureComponent } from './modals/upload-banner-picture.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { FillSocialsComponent } from './modals/fill-socials.component';
+import { UploadGroupComponent } from './modals/add-group.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FillSocialsComponent } from './modals/fill-socials.component';
     UploadProfilePictureComponent,
     UploadBannerPictureComponent,
     FillSocialsComponent,
+    UploadGroupComponent
   ],
   imports: [
     CommonModule,
@@ -45,6 +47,7 @@ import { FillSocialsComponent } from './modals/fill-socials.component';
     GroupCardComponent,
     UploadProfilePictureComponent,
     UploadBannerPictureComponent,
+    FillSocialsComponent,
   ],
 })
 export class SharedModule {}
