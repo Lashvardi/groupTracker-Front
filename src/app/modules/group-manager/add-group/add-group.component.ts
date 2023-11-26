@@ -36,7 +36,12 @@ export class AddGroupComponent {
 
   onSubmit() {
     this.isLoading = true;
-
+    let intSessionsAmount = parseInt(this.groupForm.value.sessionsAmount);
+    let sessionsPerWeek = parseInt(this.groupForm.value.perWeek);
+    this.groupForm.patchValue({
+      sessionsAmount: intSessionsAmount,
+      perWeek: sessionsPerWeek,
+    });
     setTimeout(() => {
       this.isLoading = false;
       this.notification.success(

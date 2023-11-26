@@ -46,11 +46,26 @@ export class AddSessionsComponent {
   }
   onSubmit() {
     console.log(this.sessionForm.value);
+    let intDays = this.sessionForm.value.days.map((day: any) => {
+      return parseInt(day);
+    });
+    this.sessionForm.patchValue({
+      days: intDays,
+    });
     this.dataToSend = {
-      ...this.tempData,
-      ...this.sessionForm.value,
+      group: {
+        ...this.tempData,
+      },
+      session: {
+        ...this.sessionForm.value,
+      },
     };
 
+    this.groupManagerSharedService
+      .sendData(this.dataToSend, this.authService.getLecturerId())
+      .subscribe((res) => {
+        console.log(res);
+      });
     console.log(this.dataToSend);
     this.isLoading = true;
   }
