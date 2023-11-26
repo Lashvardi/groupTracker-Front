@@ -1,56 +1,69 @@
-.center-container{
+.center-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
-  .inner{
-    border: 1px solid #dedede;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 50%;
-    flex-direction: column;
-  }
-
+  height: 100%;
+  background-color: #f4f4f4; /* Optional: background color for the container */
 }
 
-.inner{
-  input[type="text"]  {
-    width: 100%;
-    height: 40px;
-    border-radius: 5px;
-    border: 1px solid #dedede;
-    padding-left: 10px;
-    margin-bottom: 10px;
-  }
-  input[type="number"]  {
-    width: 100%;
-    height: 40px;
-    border-radius: 5px;
-    border: 1px solid #dedede;
-    padding-left: 10px;
-    margin-bottom: 10px;
-  }
-  input[type="date"]  {
-    width: 100%;
-    height: 40px;
-    border-radius: 5px;
-    border: 1px solid #dedede;
-    padding-left: 10px;
-    margin-bottom: 10px;
-  }
-
-  select{
-    width: 100%;
-    height: 40px;
-    border-radius: 5px;
-    border: 1px solid #dedede;
-    padding-left: 10px;
-    margin-bottom: 10px;
-  }
+.inner {
+  border: 1px solid #dedede;
+  padding: 20px;
+  background-color: white; /* Background color for the form area */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  width: 50%;
+  max-width: 600px; /* Maximum width */
+  flex-direction: column;
+  gap: 20px;
 }
 
+.inner h1 {
+  font-size: 24px; /* Larger font size for the heading */
+  color: #333; /* Font color for the heading */
+  margin-bottom: 20px; /* Spacing after heading */
+}
+
+.inner label {
+  display: block; /* Make labels block level for better alignment */
+  margin-bottom: 5px; /* Space between label and input */
+  font-weight: bold; /* Bold font for labels */
+}
+
+.inner input[type="text"],
+.inner input[type="number"],
+.inner input[type="date"],
+.inner select {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  padding: 0 10px;
+  margin-bottom: 20px;
+  box-sizing: border-box; /* Ensure padding doesn't affect overall width */
+}
+
+.inner select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-size: 12px;
+  cursor: pointer;
+  height: 120px;
+}
+
+.inner input[type="checkbox"] {
+  margin-right: 10px; /* Space between checkbox and label */
+}
+
+
+.inner button:disabled {
+  background-color: #cccccc; /* Disabled state */
+  cursor: default;
+}
+
+.inner pre {
+  background-color: #e9e9e9; /* Background for preformatted text */
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto; /* Horizontal scroll for overflow */
+}

@@ -12,6 +12,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { AddGroupComponent } from '../add-group/add-group.component';
 import { GroupManagerRoutingModule } from './group-manager.routing.module';
+import { NzPopoverModule } from 'ng-zorro-antd/popover';
 @NgModule({
   imports: [
     CommonModule,
@@ -26,6 +27,9 @@ import { GroupManagerRoutingModule } from './group-manager.routing.module';
     NzDividerModule,
     NzGridModule,
     GroupManagerRoutingModule,
+    NzPopoverModule,
+    NzIconModule,
+    FormsModule,
   ],
   declarations: [AddGroupComponent],
 })

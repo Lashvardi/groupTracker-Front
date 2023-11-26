@@ -2,19 +2,37 @@
   <div class="inner">
     <h1>Add Sessions</h1>
     <!-- Session Form -->
-    <form [formGroup]="sessionForm" (ngSubmit)="onSubmit()">
+    <pre>
+      {{ sessionForm.value | json }}
+    </pre>
+    <pre>
+      {{ tempData| json }}
+    </pre>
+    <form [formGroup]="sessionForm">
       <div>
         <label for="days">Days:</label>
         <select formControlName="days" multiple>
-          <option value="0">Sunday</option>
-          <option value="1">Monday</option>
+          <option value="0">Monday</option>
+          <option value="1">Tuesday</option>
+          <option value="2">Wednesday</option>
+          <option value="3">Thursday</option>
+          <option value="4">Friday</option>
+          <option value="5">Saturday</option>
+          <option value="6">Sunday</option>
         </select>
       </div>
+    </form>
+    <div>
+      <label for="time">Time:</label>
+      <input type="number" id="time" [(ngModel)]="timeStart" (ngModelChange)="updateTime()" required />
+    </div>
 
-      <div>
-        <label for="time">Time:</label>
-        <input type="time" id="time" formControlName="time" required />
-      </div>
+    <div>
+      <label for="time">Time:</label>
+      <input type="number" id="time" [(ngModel)]="timeEnd" (ngModelChange)="updateTime()" required />
+    </div>
+
+    <form [formGroup]="sessionForm" (ngSubmit)="onSubmit()">
 
       <div>
         <label for="auditorium">Auditorium:</label>
@@ -26,7 +44,7 @@
         <input type="checkbox" id="isOnlineSession" formControlName="isOnline" />
       </div>
 
-      <button type="submit">Submit Session</button>
+      <button nz-button nzType="primary" [nzLoading]="isLoading" type="submit">Submit Session</button>
     </form>
   </div>
 </div>

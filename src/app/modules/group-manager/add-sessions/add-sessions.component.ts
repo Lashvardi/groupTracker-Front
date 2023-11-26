@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { AuthService } from '../../auth/extensions/auth.service';
+import { GroupManagerSharedService } from '../extensions/group-manager-shared.service';
 
 @Component({
   selector: 'app-add-sessions',
@@ -11,11 +12,16 @@ import { AuthService } from '../../auth/extensions/auth.service';
 })
 export class AddSessionsComponent {
   sessionForm: FormGroup;
-
+  tempData: any;
+  isLoading = false;
+  timeStart: any;
+  timeEnd: any;
+  dataToSend: any;
   constructor(
     private authService: AuthService,
     private notification: NzNotificationService,
-    private http: HttpClient
+    private http: HttpClient,
+    private groupManagerSharedService: GroupManagerSharedService
   ) {
     this.sessionForm = new FormGroup({
       days: new FormControl([], Validators.required),
@@ -23,9 +29,29 @@ export class AddSessionsComponent {
       auditorium: new FormControl('', Validators.required),
       isOnline: new FormControl(true, Validators.required),
     });
-  }
+    let timeFormed = `${this.timeStart}:00 - ${this.timeEnd}:00`;
+    this.sessionForm.patchValue({
+      time: timeFormed,
+    });
 
+    this.groupManagerSharedService.getTempData().subscribe((data) => {
+      this.tempData = data;
+    });
+  }
+  updateTime() {
+    let timeFormed = `${this.timeStart}:00 - ${this.timeEnd}:00`;
+    this.sessionForm.patchValue({
+      time: timeFormed,
+    });
+  }
   onSubmit() {
     console.log(this.sessionForm.value);
+    this.dataToSend = {
+      ...this.tempData,
+      ...this.sessionForm.value,
+    };
+
+    console.log(this.dataToSend);
+    this.isLoading = true;
   }
 }
