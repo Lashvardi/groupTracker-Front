@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-group-card',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./group-card.component.scss']
 })
 export class GroupCardComponent {
-
+  @Input() groupName: string = '';
+  @Input() groupGrade: string = '';
+  @Input() groupSubject: string = '';
+  @Input() groupCompany: string = '';
+  @Input() groupAuditorium: string = '';
+  @Input() groupTime: string = '';
+  @Input() CurrentLecture: string = '';
+  @Input() groupDay: string = '';
+  @Input() groupProgress: string = '';
 }

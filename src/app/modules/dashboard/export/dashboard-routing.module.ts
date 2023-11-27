@@ -12,7 +12,6 @@ const routes: Routes = [
   {
     path: 'Calendar',
     component: CalendarComponent,
-    canActivate: [NoAuthGuard],
   },
 ];
 
