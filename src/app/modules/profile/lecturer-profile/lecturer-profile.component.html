@@ -55,7 +55,12 @@
 
   </div>
   <div class="chip-container">
-    <app-group-card></app-group-card>
+    <ng-container *ngFor="let group of _groups">
+      <app-group-card [groupColor]="group.hexColor" [groupDay]="group.days" [groupTime]="group.time"
+        [groupAuditorium]="group.auditorium" [groupSubject]="group.groupType" [groupGrade]="group.grade"
+        [groupCompany]="group.companyName" [groupName]="group.groupName"></app-group-card>
+
+    </ng-container>
     <div routerLink="/group-manager/add-group" class="add-chip">
       <div class="inner">
         <div class="icon">

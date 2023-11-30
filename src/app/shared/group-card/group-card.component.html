@@ -1,11 +1,11 @@
 <div class="element">
-  <div class="color-coded">
+  <div class="color-coded" [style.backgroundColor]="groupColor">
     <div class="frame">
       <div class="text-wrapper">{{groupGrade}}</div>
-      <div class="div">{{groupName}}</div>
+      <div class="div" style="margin-top: 10px;">{{groupName}}</div>
       <div style="margin-top: 10px;">{{groupTime}}</div>
+      <div class="text-wrapper-3" style="margin-top: 10px;">{{groupCompany}}</div>
     </div>
-    <div class="text-wrapper-2">{{groupCompany}}</div>
   </div>
   <div class="frame-wrapper">
     <div class="frame-2">

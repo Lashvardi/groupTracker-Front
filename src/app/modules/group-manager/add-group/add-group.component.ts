@@ -42,6 +42,7 @@ export class AddGroupComponent {
       sessionsAmount: intSessionsAmount,
       perWeek: sessionsPerWeek,
     });
+    console.log(this.groupForm.value);
     setTimeout(() => {
       this.isLoading = false;
       this.notification.success(

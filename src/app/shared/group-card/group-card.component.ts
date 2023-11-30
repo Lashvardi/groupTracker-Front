@@ -15,4 +15,5 @@ export class GroupCardComponent {
   @Input() CurrentLecture: string = '';
   @Input() groupDay: string = '';
   @Input() groupProgress: string = '';
+  @Input() groupColor: string = '';
 }

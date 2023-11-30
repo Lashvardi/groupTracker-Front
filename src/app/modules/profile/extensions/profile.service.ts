@@ -43,4 +43,12 @@ export class ProfileService {
       )
     );
   }
+
+  getGroups(lecturerId: string) {
+    return this._http.get(
+      ServiceUrlBuilder.buildRootUrl(
+        `Group/get-all-for-lecturer?lecturerId=${lecturerId}`
+      )
+    );
+  }
 }

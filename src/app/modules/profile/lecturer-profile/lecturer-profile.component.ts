@@ -10,6 +10,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { SharedService } from 'src/app/shared/shared.service';
 import { SocialsLinks } from './socials.model';
 import { UploadGroupComponent } from 'src/app/shared/modals/add-group.component';
+import { Group } from '../../dashboard/extensions/group.model';
 
 @Component({
   selector: 'app-lecturer-profile',
@@ -27,6 +28,8 @@ export class LecturerProfileComponent {
     youTubeLink: '',
     personalWebsiteLink: '',
   };
+
+  public _groups: any[] = [];
 
   public _bannerPictureFileName: string = '';
   public _bannerPicture: string = ``;
@@ -49,6 +52,21 @@ export class LecturerProfileComponent {
       .subscribe((fileName: string) => {
         this._bannerPictureFileName = fileName;
         this._bannerPicture = `https://localhost:7273/Images/${this._bannerPictureFileName}`;
+      });
+
+    this.profileService
+      .getGroups(_authService.getLecturerId())
+      .subscribe((groups: any) => {
+        console.log(groups);
+        if (groups.length == 0) {
+          this._modal.create({
+            nzTitle: 'Add Group',
+            nzContent: UploadGroupComponent,
+            nzFooter: null,
+          });
+        }
+        this._groups = groups;
+        console.log(this._groups);
       });
 
     this.profileService
@@ -105,6 +123,4 @@ export class LecturerProfileComponent {
       nzFooter: null,
     });
   }
-
-
 }
