@@ -27,6 +27,7 @@ import { ProfileRoutingModule } from './modules/profile/export/profile-routing.m
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 import { AddSessionsComponent } from './modules/group-manager/add-sessions/add-sessions.component';
+import { AddFriendComponent } from './modules/friends/add-friend/add-friend.component';
 registerLocaleData(en);
 
 @NgModule({

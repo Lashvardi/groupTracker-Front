@@ -31,6 +31,13 @@ const routes: Routes = [
         (m) => m.ProfileModule
       ),
   },
+  {
+    path: 'friends',
+    loadChildren: () =>
+      import('./modules/friends/export/friends.module').then(
+        (m) => m.FriendsModule
+      ),
+  },
 ];
 
 @NgModule({

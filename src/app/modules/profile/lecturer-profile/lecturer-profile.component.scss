@@ -31,10 +31,10 @@
 
 .socials-container{
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  padding-left: 125px;
+  padding: 0 250px;
   .inner{
     display: flex;
     justify-content: flex-start;
@@ -44,6 +44,15 @@
     margin-bottom: 20px;
     width: 100%;
 
+  }
+
+  .settings-icon{
+    font-size: 1.5rem;
+    color: #000;
+    transition: 200ms;
+    &:hover{
+      color: peru;
+    }
   }
 }
 

@@ -72,6 +72,7 @@ export class LecturerProfileComponent {
     this.profileService
       .hasFilledOutSocials(_authService.getLecturerId())
       .subscribe((hasFilledOutSocials) => {
+        console.log(hasFilledOutSocials);
         if (!hasFilledOutSocials) {
           this._modal.create({
             nzTitle: 'Socials',
@@ -79,13 +80,6 @@ export class LecturerProfileComponent {
             nzFooter: null,
           });
         } else {
-          // this was for testing purposes
-          // this._modal.create({
-          //   nzTitle: 'Socials',
-          //   nzContent: 'You have filled out your socials!',
-          //   nzFooter: null,
-          // });
-
           this._message.info('You have filled out your socials!');
         }
       });

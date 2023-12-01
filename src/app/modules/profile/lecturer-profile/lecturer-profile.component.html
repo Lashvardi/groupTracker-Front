@@ -51,9 +51,14 @@
         </a>
       </div>
     </div>
-    <!-- edit icon -->
 
+    <div class="settings-wrapper">
+      <div class="settings-icon">
+        <span nz-icon nzType="setting" nzTheme="outline"></span>
+      </div>
+    </div>
   </div>
+
   <div class="chip-container">
     <ng-container *ngFor="let group of _groups">
       <app-group-card [groupColor]="group.hexColor" [groupDay]="group.days" [groupTime]="group.time"

@@ -14,8 +14,8 @@ export class CalendarComponent {
   modalRef: any = null;
   daySchedulingCount: { [key: number]: number } = {};
   viewDate: Date = new Date();
-  minHour: number = 0;
-  maxHour: number = 24;
+  minHour: number = 10; // Start time of your working hours
+  maxHour: number = 22; // End time of your working hours
 
   data: any = [];
 
@@ -62,53 +62,65 @@ export class CalendarComponent {
   }
 
   generateEvents() {
-    this.events = []; // Initialize your events array
+    this.events = [];
 
     this.data.forEach((group: any) => {
       group.sessions.forEach((session: any) => {
-        const startHour = parseInt(
-          session.time.split('-')[0].split(':')[0],
-          10
-        );
-        const endHour = parseInt(session.time.split('-')[1].split(':')[0], 10);
+        let weekNumber = 0;
+        let start, end;
+        let isAvailable;
 
-        // Calculate the date for the session
-        const dateForSession = this.getUpcomingDateForDay(session.day);
+        do {
+          const dateForSession = this.getUpcomingDateForDay(
+            session.day,
+            group.startDate,
+            weekNumber
+          );
+          const startHour = parseInt(
+            session.time.split('-')[0].split(':')[0],
+            10
+          );
+          const endHour = parseInt(
+            session.time.split('-')[1].split(':')[0],
+            10
+          );
+          start = new Date(`${dateForSession}T${startHour}:00`);
+          end = new Date(`${dateForSession}T${endHour}:00`);
+          isAvailable = this.isTimeSlotAvailable(this.events, start, end);
 
-        // Create Date objects for start and end times
-        const start = new Date(`${dateForSession}T${startHour}:00`);
-        const end = new Date(`${dateForSession}T${endHour}:00`);
-        if (this.isTimeSlotAvailable(this.events, start, end)) {
-          // Push the session into the events array
-          this.events.push({
-            start,
-            end,
-            title: `${group.groupName} | ${session.auditorium} | ${session.time}`,
-            color: session.isOnline
-              ? { primary: '#ad2121', secondary: '#FAE3E3' }
-              : { primary: '#1e90ff', secondary: '#D1E8FF' },
-            meta: {
-              detail: `${group.companyName} | ${group.groupName} (${group.grade}) | Auditorium: ${session.auditorium} | Time: ${session.time}`,
-              isOnline: session.isOnline,
-              isAlternate: session.isAlternate,
-            },
-          });
-        }else{
-          console.log("Collision");
-        }
+          if (!isAvailable) {
+            weekNumber++; // Try next week
+          }
+        } while (!isAvailable);
+
+        // Push the event into the calendar
+        this.events.push({
+          start,
+          end,
+          title: `${group.groupName} | ${session.auditorium} | ${session.time}`,
+          color: session.isOnline
+            ? { primary: '#ad2121', secondary: '#FAE3E3' }
+            : { primary: '#1e90ff', secondary: '#D1E8FF' },
+          meta: {
+            detail: `${group.companyName} | ${group.groupName} (${group.grade}) | Auditorium: ${session.auditorium} | Time: ${session.time}`,
+            isOnline: session.isOnline,
+            isAlternate: session.isAlternate,
+          },
+        });
       });
     });
   }
 
-  private getUpcomingDateForDay(day: number): string {
-    const today = new Date();
-    let todayDay = today.getDay();
-    todayDay = todayDay === 0 ? 6 : todayDay - 1;
-
-    // Calculate the number of days to add to get the upcoming date for the given day
-    const daysToAdd = day - todayDay + (day <= todayDay ? 7 : 0);
-    const upcomingDate = new Date();
-    upcomingDate.setDate(today.getDate() + daysToAdd);
+  private getUpcomingDateForDay(
+    day: number,
+    startDate: string,
+    weekNumber: number = 0
+  ): string {
+    const start = new Date(startDate);
+    let daysToAdd = (day - start.getDay() + 7) % 7 + 1;
+    daysToAdd += 7 * weekNumber; // Move to the correct week
+    const upcomingDate = new Date(start);
+    upcomingDate.setDate(start.getDate() + daysToAdd);
 
     return upcomingDate.toISOString().split('T')[0];
   }
