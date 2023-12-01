@@ -1,7 +1,8 @@
 <h1 style="margin-left: 120px;">Our Suggestions</h1>
 <div class="friends-wrapper">
   <ng-container *ngFor="let friend of friends">
-    <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
+    <nz-card routerLink="/friends/friend-profile/{{friend.id}}" nzHoverable style="width:240px"
+      [nzCover]="coverTemplate">
       <nz-card-meta nzTitle="{{friend.fullName}}" nzDescription="{{friend.companies}}"></nz-card-meta>
       <nz-card-meta nzTitle="Subjects" nzDescription="{{friend.subjects}}"></nz-card-meta>
     </nz-card>

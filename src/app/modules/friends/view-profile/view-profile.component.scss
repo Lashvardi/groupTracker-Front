@@ -1,0 +1,157 @@
+.top-side{
+  width: 100%;
+  .background-banner{
+    width: 100%;
+    height: 250px;
+    background-color: #4F6F52;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    user-select: none ;
+    &:hover{
+      .hidden{
+        opacity: 1;
+      }
+
+      background-color: #617c64;
+    }
+  }
+
+}
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.socials-container{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  padding: 0 250px;
+  .inner{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+
+  }
+
+  .settings-icon{
+    font-size: 1.5rem;
+    color: #000;
+    transition: 200ms;
+    &:hover{
+      color: peru;
+    }
+  }
+}
+
+.chip-container{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 120px;
+  width: 80%;
+  flex-wrap: wrap;
+}
+
+.initials-container{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  z-index: 100;
+  transform: translate(-50%, -0%);
+
+}
+
+.profile-picture{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 32px;
+  border: #000 5px solid;
+  transition: 200ms;
+  &:hover{
+    filter: contrast(0.8);
+    }
+}
+
+
+.hidden{
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: 200ms;
+
+  opacity: 0;
+}
+
+.icon i{
+  font-size: 1.5rem;
+  color: #000;
+  transition: 200ms;
+  &:hover{
+    color: peru;
+  }
+}
+
+
+.icon{
+  user-select: none;
+}
+
+.add-chip{
+  height: 190px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: dashed 2px #dedede;
+  text-align: center;
+  font-size: 24px;
+  border-radius: 8px;
+  transition: 200ms;
+  user-select: none;
+  &:hover{
+    background-color: #dedede;
+  }
+}
+
+.socials{
+  height: 100px;
+  border: solid 1px #dedede;
+  display: flex;
+  padding: 0 120px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  .icon{
+    font-size: 1.5rem;
+    color: #000;
+    transition: 200ms;
+    &:hover{
+      color: peru;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<div class="wrapper">
+  <div class="top-side">
+    <div class="background-banner"
+      [ngStyle]="{'background-image': _bannerPicture ? 'url(' + _bannerPicture + ')' : 'none'}">
+    </div>
+
+    <div class="initials-container">
+      <app-initials-avatar *ngIf="!_profilePictureFileName" [size]="'big'"
+        [fullName]="_authService.getLecturerName()"></app-initials-avatar>
+
+      <img *ngIf="_profilePictureFileName" class="profile-picture" [src]="_profilePicture" alt="" />
+    </div>
+  </div>
+
+  <div class="socials">
+    <div *ngIf="friendProfile.facebook" class="icon">
+      <a target="_blank" href="{{friendProfile.facebook}}">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </div>
+    <div *ngIf="friendProfile.instagram" class="icon">
+      <a target="_blank" href="{{friendProfile.instagram}}">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+    <div *ngIf="friendProfile.linkedIn" class="icon">
+      <a target="_blank" href="{{friendProfile.linkedIn}}">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+    <div *ngIf="friendProfile.twitter" class="icon">
+      <a target="_blank" href="{{friendProfile.twitter}}">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </div>
+    <div *ngIf="friendProfile.youTube" class="icon">
+      <a target="_blank" href="{{friendProfile.youTube}}">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+    <!-- personal website -->
+    <div *ngIf="friendProfile?.website" class="icon">
+      <a target="_blank" href="{{friendProfile.website}}">
+        <i class="fas fa-globe"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div *ngFor="let msg of messages">
+    {{msg}}
+  </div>
+
+  <input [(ngModel)]="receiverUserId" type="text" placeholder="Receiver User ID">
+  <textarea [(ngModel)]="message" placeholder="Type a message..."></textarea>
+  <button (click)="sendMessage()">Send</button>
+</div>

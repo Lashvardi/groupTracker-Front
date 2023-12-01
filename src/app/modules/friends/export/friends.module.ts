@@ -16,6 +16,9 @@ import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
 import { FriendsRoutingModule } from './friends-routing.module';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { AddFriendComponent } from '../add-friend/add-friend.component';
+import { ViewProfileComponent } from '../view-profile/view-profile.component';
+import { InitialsAvatarComponent } from 'src/app/shared/initials-avatar/initials-avatar.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 @NgModule({
   imports: [
     CommonModule,
@@ -33,9 +36,10 @@ import { AddFriendComponent } from '../add-friend/add-friend.component';
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
+    SharedModule,
     FriendsRoutingModule,
     NzGridModule,
   ],
-  declarations: [AddFriendComponent],
+  declarations: [AddFriendComponent, ViewProfileComponent],
 })
 export class FriendsModule {}
