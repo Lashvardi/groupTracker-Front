@@ -8,6 +8,8 @@ import {
 import { Component } from '@angular/core';
 import { AuthService } from './modules/auth/extensions/auth.service';
 import { filter, map } from 'rxjs';
+import { SignalrService } from './shared/services/chat.service';
+import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +18,13 @@ import { filter, map } from 'rxjs';
 })
 export class AppComponent {
   currentRoute!: string;
+  public hubConnection!: HubConnection;
 
   constructor(
     public _authService: AuthService,
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute,
+    private _router: Router,
+    private _signalR: SignalrService
   ) {}
 
   // get the current route data

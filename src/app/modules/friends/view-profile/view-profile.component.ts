@@ -10,6 +10,7 @@ import { FriendProfile } from './friend.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { SignalrService } from 'src/app/shared/services/chat.service';
+import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
 @Component({
   selector: 'app-view-profile',
   templateUrl: './view-profile.component.html',
@@ -49,7 +50,7 @@ export class ViewProfileComponent implements OnDestroy {
   private _unsubscribe = new Subject<void>();
   receiverUserId!: string;
   message!: string;
-  messages: string[] = [];
+  messages: any[] = [];
   constructor(
     public _authService: AuthService,
     public profileService: ProfileService,
@@ -96,23 +97,63 @@ export class ViewProfileComponent implements OnDestroy {
             this._profilePictureFileName = fileName;
             this._profilePicture = `https://localhost:7273/Images/${this._profilePictureFileName}`;
           });
+        this._http
+          .get(
+            ServiceUrlBuilder.buildRootUrl(
+              `Friends/get-messages/${this._authService.getLecturerId()}/${friendId}`
+            )
+          )
+          .subscribe((res: any) => {
+            this.messages = res;
+          });
       });
+    this.startConnection();
   }
-  ngOnInit() {
-    this._signalR.startConnection();
-    this._signalR.addReceiveMessageListener((senderId, message) => {
-      this.messages.push(`From ${senderId}: ${message}`);
+  public hubConnection!: HubConnection;
+
+  public startConnection = () => {
+    this.hubConnection = new HubConnectionBuilder()
+      .withUrl('https://localhost:7273/chatHub') // Adjust the URL to your setup
+      .build();
+
+    this.hubConnection
+      .start()
+      .then(() => {
+        console.log('Connection started');
+      })
+      .catch((err) => console.error('Error while starting connection: ' + err));
+
+    this.hubConnection.on('ReceiveMessage', (senderId, message) => {
+      console.log('ReceiveMessage', senderId, message);
+      this.messages.push({ senderId, message });
+      console.log(this.messages);
     });
+  };
+
+  public sendMessageRequest = (
+    senderId: string,
+    receiverUserId: string,
+    message: string
+  ) => {
+    this.hubConnection
+      .invoke('SendMessage', receiverUserId, message, senderId)
+      .catch((err) => console.error(err));
+  };
+
+  public sendMessage = () => {
+    console.log(this.receiverUserId, this.message);
+    const senderId = this._authService.getLecturerId();
+    this.sendMessageRequest(senderId, this.receiverUserId, this.message);
+    this.message = '';
+  };
+  public isCurrentUser(senderId: string): boolean {
+    const isCurrentUser = senderId === this._authService.getLecturerId();
+    console.log(
+      `isCurrentUser: ${isCurrentUser}, senderId: ${senderId}, currentUserId: ${this._authService.getLecturerId()}`
+    );
+    return isCurrentUser;
   }
 
-  sendMessage() {
-    this._signalR.sendMessage(
-      this.receiverUserId,
-      this.message,
-      this._authService.getLecturerId()
-    );
-    this.message = '';
-  }
   ngOnDestroy() {
     this._unsubscribe.next();
     this._unsubscribe.complete();

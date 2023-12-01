@@ -155,3 +155,19 @@
     }
   }
 }
+.message-outgoing {
+  text-align: right;
+  background-color: #DCF8C6; // Light green background for your messages
+}
+
+.message-incoming {
+  text-align: left;
+  background-color: red;
+}
+
+.message-content {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+}

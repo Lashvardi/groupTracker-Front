@@ -48,9 +48,13 @@
 </div>
 
 <div>
-  <div *ngFor="let msg of messages">
-    {{msg}}
+  <div *ngFor="let message of messages"
+    [ngClass]="{'message-outgoing': isCurrentUser(message.senderId), 'message-incoming': !isCurrentUser(message.senderId)}">
+    <div class="message-content">
+      {{ message.message }}
+    </div>
   </div>
+
 
   <input [(ngModel)]="receiverUserId" type="text" placeholder="Receiver User ID">
   <textarea [(ngModel)]="message" placeholder="Type a message..."></textarea>
