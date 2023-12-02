@@ -1,7 +1,11 @@
 <ng-container *ngIf="size === 'small'">
-  <div class="avatar" (click)="toggleDropdown()">
+  <div *ngIf="!_profilePictureFileName" class="avatar" (click)="toggleDropdown()">
     {{ initials }}
   </div>
+  <div *ngIf="_profilePictureFileName" class="avatar_Pic" (click)="toggleDropdown()">
+    <img [src]="_profilePicture" alt="" />
+  </div>
+
   <div class="dropdown-menu" *ngIf="showDropdown">
     <button class="dropdown-item"><a routerLink="/Calendar"><i
           class="fa-regular fa-calendar-days"></i>Dashboard</a></button>

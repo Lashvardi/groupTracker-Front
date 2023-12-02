@@ -6,7 +6,7 @@
 
     <div class="initials-container">
       <app-initials-avatar *ngIf="!_profilePictureFileName" [size]="'big'"
-        [fullName]="_authService.getLecturerName()"></app-initials-avatar>
+        [fullName]="friendProfile.fullName"></app-initials-avatar>
 
       <img *ngIf="_profilePictureFileName" class="profile-picture" [src]="_profilePicture" alt="" />
     </div>
@@ -45,18 +45,23 @@
       </a>
     </div>
   </div>
-</div>
 
-<div>
-  <div *ngFor="let message of messages"
-    [ngClass]="{'message-outgoing': isCurrentUser(message.senderId), 'message-incoming': !isCurrentUser(message.senderId)}">
-    <div class="message-content">
-      {{ message.message }}
+  <div class="chat-whole">
+    <div class="chat-wrapper">
+      <div class="chat-container">
+        <div *ngFor="let message of messages"
+          [ngClass]="{'message-outgoing': isCurrentUser(message.senderId), 'message-incoming': !isCurrentUser(message.senderId)}">
+          <div class="message-content">
+            {{ message.message }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="keyboard-container" style="width: 100%;">
+      <div style="display: flex; align-items: center; justify-content: center;">
+        <textarea style="margin: 0;" [(ngModel)]="message" placeholder="Type a message..."></textarea>
+        <button style="margin: 0; margin-left: 25px;" (click)="sendMessage()">Send</button>
+      </div>
     </div>
   </div>
-
-
-  <input [(ngModel)]="receiverUserId" type="text" placeholder="Receiver User ID">
-  <textarea [(ngModel)]="message" placeholder="Type a message..."></textarea>
-  <button (click)="sendMessage()">Send</button>
 </div>

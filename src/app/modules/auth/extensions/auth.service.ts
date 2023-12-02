@@ -109,4 +109,12 @@ export class AuthService {
     }
     return 'No ID';
   }
+
+  getAccessToken(): string {
+    const token = this.getToken();
+    if (token) {
+      return token;
+    }
+    return '';
+  }
 }

@@ -155,19 +155,139 @@
     }
   }
 }
-.message-outgoing {
-  text-align: right;
-  background-color: #DCF8C6; // Light green background for your messages
+/* Base styling for the message area */
+.message-area {
+  font-family: 'Arial', sans-serif;
+  background-color: #f2f3f5; /* Light background for the message area */
+  padding: 20px;
 }
 
-.message-incoming {
-  text-align: left;
-  background-color: red;
-}
-
+/* General styling for messages */
 .message-content {
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 5px;
   display: inline-block;
+  max-width: 80%; /* Limiting the width of the message */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Adding a subtle shadow for depth */
+}
+
+/* Styling for outgoing messages */
+.message-outgoing {
+  text-align: right;
+  display: flex;
+  justify-content: flex-end; /* Aligning outgoing messages to the right */
+}
+
+.message-outgoing .message-content {
+  background-color: #DCF8C6; /* Light green background */
+  color: black; /* Black text color */
+  border-bottom-right-radius: 0; /* Flattening one corner for a distinctive look */
+
+}
+
+/* Styling for incoming messages */
+.message-incoming {
+  text-align: left;
+  display: flex;
+  justify-content: flex-start; /* Aligning incoming messages to the left */
+}
+
+.message-incoming .message-content {
+  background-color: red; /* Red background */
+  color: white; /* White text color */
+  border-bottom-left-radius: 0; /* Flattening one corner for a distinctive look */
+}
+
+/* Additional styling for improved readability */
+.message-content p {
+  margin: 0; /* Removing default paragraph margins */
+  line-height: 1.5; /* Increasing line height for better readability */
+}
+
+/* Styling for timestamps and sender's name (if required) */
+.timestamp,
+.sender-name {
+  font-size: 0.75em;
+  color: grey;
+}
+
+
+
+.chat-whole{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  .chat-wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .chat-container {
+      width: 40%;
+      height: 300px;
+      overflow-y: scroll;
+      display: flex;
+      flex-direction: column;
+      align-self: flex-start;
+      justify-content: flex-start;
+    }
+  }
+}
+/* Styling for the keyboard container */
+.keyboard-container {
+  background-color: #fff; /* White background */
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+  border-radius: 10px; /* Rounded corners */
+  max-width: 600px; /* Limiting width */
+  margin: 20px auto; /* Centering the container */
+}
+
+/* Styling for the input and textarea */
+.keyboard-container input, .keyboard-container textarea {
+  width: 100%; /* Full width */
+  padding: 10px;
+  margin-bottom: 10px; /* Spacing between elements */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 5px; /* Rounded corners */
+  box-sizing: border-box; /* Ensuring padding doesn't affect width */
+}
+
+/* Placeholder styling for better visibility */
+.keyboard-container input::placeholder, .keyboard-container textarea::placeholder {
+  color: #aaa;
+}
+
+/* Styling for the send button */
+.keyboard-container button {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding */
+  text-align: center; /* Centering text */
+  text-decoration: none;
+  display: inline-block; /* Inline block display */
+  font-size: 16px; /* Font size */
+  margin: 4px 2px; /* Margin */
+  transition-duration: 0.4s; /* Transition for hover effect */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Hover effect for the button */
+.keyboard-container button:hover {
+  background-color: white;
+  color: #4CAF50;
+  border: 1px solid #4CAF50; /* Adding a border on hover */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 600px) {
+  .keyboard-container {
+    width: 90%; /* Smaller width on smaller screens */
+    margin: 10px auto;
+  }
 }

@@ -104,16 +104,18 @@ export class ViewProfileComponent implements OnDestroy {
             )
           )
           .subscribe((res: any) => {
+            console.log(res);
             this.messages = res;
           });
       });
+
     this.startConnection();
   }
   public hubConnection!: HubConnection;
 
   public startConnection = () => {
     this.hubConnection = new HubConnectionBuilder()
-      .withUrl('https://localhost:7273/chatHub') // Adjust the URL to your setup
+      .withUrl('https://localhost:7273/chatHub')
       .build();
 
     this.hubConnection
@@ -143,6 +145,7 @@ export class ViewProfileComponent implements OnDestroy {
   public sendMessage = () => {
     console.log(this.receiverUserId, this.message);
     const senderId = this._authService.getLecturerId();
+    this.receiverUserId = this.friendProfile.id.toString();
     this.sendMessageRequest(senderId, this.receiverUserId, this.message);
     this.message = '';
   };

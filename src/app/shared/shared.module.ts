@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { FillSocialsComponent } from './modals/fill-socials.component';
 import { UploadGroupComponent } from './modals/add-group.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,8 @@ import { UploadGroupComponent } from './modals/add-group.component';
     FormsModule,
     ReactiveFormsModule,
     NzFormModule,
+    HttpClientModule
+    
   ],
   exports: [
     InitialsAvatarComponent,

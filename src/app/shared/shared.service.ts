@@ -23,4 +23,11 @@ export class SharedService {
       )
     );
   }
+
+  getProfilePicture(lecturerId: string) {
+    return this._http.get(
+      ServiceUrlBuilder.buildRootUrl(`Lecturer/profile-picture/${lecturerId}`),
+      { responseType: 'text' } // Expecting text response
+    );
+  }
 }
